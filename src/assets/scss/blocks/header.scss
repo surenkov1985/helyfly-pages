@@ -1,0 +1,181 @@
+.header {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__content {
+		min-height: 100px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		column-gap: 38px;
+	}
+
+	&__logo {
+		font-family: $mainFont;
+		text-transform: uppercase;
+		font-size: 33px;
+		font-weight: $mediumFontWeight;
+		letter-spacing: -2px;
+	}
+
+	&__present {
+		position: relative;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		z-index: 5;
+
+	}
+	&__contacts {
+		display: flex;
+	}
+
+	&__present {
+		width: 100%;
+		min-height: 400px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: $productNameColor;
+		z-index: -2;
+	}
+
+	&__background {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		object-fit: contain;
+		z-index: -1;
+		//background: url(/assets/img/helicopter.png);
+		//background-repeat: no-repeat;
+		//background-position: center;
+		//background-size: contain;
+	}
+	&__image > img {
+		width: 100%;
+		height: 840px;
+		object-fit: cover;
+	}
+
+	&__description {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		z-index: 1;
+		row-gap: 20px;
+		position: absolute;
+
+
+	}
+
+	&__title {
+		width: (887 / 1136 * 100%);
+		max-width: 887px;
+		font-size: 40px;
+		line-height: 49px;
+		margin-top: 25px;
+
+		&_white {
+			color: $defaultColor;
+			font-weight: $titleFontWeight;
+		}
+
+		&_yellow {
+			color: $activeColor;
+			font-weight: $titleFontWeight;
+		}
+	}
+
+	&__build {
+		min-width: 224px;
+		max-width: 350px;
+		background: $activeColor;
+		position: relative;
+		border-radius: 5px;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		column-gap: 5px;
+		//margin-bottom: 23px;
+		padding: 10px 24px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 92%;
+			left: 53%;
+			width: 25px;
+			height: 25px;
+			transform-origin: top left;
+			transform: rotate(-45deg);
+			background: $activeColor;
+			border-radius:0 0 0 4px;
+			//box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+			//z-index: -1;
+		}
+	}
+
+	&__desc {
+		font-weight: 400;
+		font-size: 20px;
+		//line-height: 151.16%;
+		color: $defaultColor;
+	}
+
+	&__rate {
+		font-weight: 800;
+		font-size: 35px;
+		color: $defaultColor;
+	}
+
+	&__sale {
+		font-weight: 800;
+		font-size: 35px;
+		color: $defaultColor;
+		border: 1px solid $defaultColor;
+		border-radius: 50%;
+		filter: drop-shadow(0px 4px 15px rgba(255, 255, 255, 0.25)) drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));
+		min-width: 52px;
+		height: 52px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__button {
+		min-width: 200px;
+		max-width: 450px;
+		min-height: 68px;
+		text-align: center;
+		border: 3px solid $defaultColor;
+		filter: drop-shadow(0px 4px 70px rgba(255, 255, 255, 0.7)) drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));
+		background: transparent;
+		color: $defaultColor;
+		font-size: 18px;
+		font-weight: 900;
+		padding: 10px 40px;
+		cursor: pointer;
+		border-radius: 3px;
+		z-index: 20;
+	}
+}
+
+.contacts {
+
+	&__type {
+		font-weight: $mainFontWeight;
+		font-size: 14px;
+		color: #B3B3B3;
+	}
+	&__link {
+		font-weight: 400;
+		font-size: 14px;
+		color: #37373F;
+
+	}
+}

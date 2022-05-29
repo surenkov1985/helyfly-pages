@@ -1,0 +1,144 @@
+.main__fotoshoot {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.fotoshoot {
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		row-gap: 30px;
+		padding: 70px 3px 25px;
+		border-bottom: 1px solid $lineColor;
+	}
+
+	&__presents {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	&__description {
+		width: 48%;
+		height: 100%;
+		//padding-left: 2px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 9px;
+		justify-content: space-around;
+	}
+
+	&__title{
+		width: 80%;
+	}
+
+	&__title h2 {
+		font-weight: 500;
+		font-size: 40px;
+		line-height: 49px;
+	}
+
+	&__text p {
+		font-weight: 400;
+		font-size: 18px;
+		line-height: 26px;
+
+		color: $mainFontColor;
+	}
+
+	&__img {
+		width: 48.5%;
+		height: 100%;
+		border-radius: 4px;
+		position: relative;
+		cursor: pointer;
+
+		&>img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	&__play {
+		position: absolute;
+		z-index: 10;
+		right: (41 / 554 * 100%);
+		bottom: (29 / 374 * 100%);
+	}
+
+	&__commits {
+		width: 50%;
+		margin-top: 4px;
+	}
+
+}
+.fotos {
+	display: flex;
+	flex-direction: column;
+	row-gap: 38px;
+
+	//padding: 0 2px 30px;
+
+	&__title h3 {
+		font-weight: 500;
+		font-size: 20px;
+		color: $mainFontColor;
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+		grid-gap: 10px;
+	}
+	&__item {
+		cursor: pointer;
+
+		&>img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+	}
+	&__show-button {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	&__button {
+		font-weight: 500;
+		font-size: 17px;
+		color: $showColor;
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin-top: 3px;
+		padding: 0 10px;
+		cursor: pointer;
+
+		&:before {
+			content: '';
+			width: 8px;
+			height: 8px;
+			border-bottom: 1px solid $lineColor;
+			border-right: 1px solid $lineColor;
+			transform: rotate(45deg);
+			position: absolute;
+			left: 100%;
+		}
+
+		&:after {
+			content: '';
+			width: 8px;
+			height: 8px;
+			border-bottom: 1px solid $lineColor;
+			border-right: 1px solid $lineColor;
+			transform: rotate(45deg);
+			position: absolute;
+			right: 100%;
+		}
+	}
+
+}

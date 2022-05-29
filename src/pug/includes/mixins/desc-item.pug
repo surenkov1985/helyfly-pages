@@ -1,0 +1,7 @@
+block variables
+
+mixin descItem(item)
+
+	li(class= item).desc__item
+		.desc__icon!= descItem[item]["icon"]
+		.desc__text= descItem[item]["text"]

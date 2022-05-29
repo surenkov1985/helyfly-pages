@@ -1,0 +1,123 @@
+.sponsor {
+	display: flex;
+	justify-content: center;
+
+	&__container {
+		display: flex;
+		padding: 39px 3px 30px;
+		border-bottom: 1px solid $lineColor;
+		justify-content: space-between;
+	}
+	&__description {
+		width: 51%;
+		display: flex;
+		flex-direction: column;
+		row-gap: 41px;
+
+	}
+
+	& h3 {
+		font-weight: 500;
+		font-size: 18px;
+		color: $mainFontColor;
+	}
+	& span {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		color: $mainFontColor;
+	}
+	&__about {
+		//display: flex;
+		//flex-direction: column;
+		//row-gap: 13px;
+	}
+
+	&__about-text {
+		display: flex;
+		flex-direction: column;
+		row-gap: 26px;
+		margin-top: 13px;
+
+	}
+	&__link-more {
+		margin-top:7px;
+		font-weight: 500;
+		font-size: 16px;
+		color: $showColor;
+		display: inline-block;
+
+	}
+
+	&.more {
+		position: relative;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+
+		&:before {
+			content: '';
+			width: 8px;
+			height: 8px;
+			border-bottom: 1px solid $lineColor;
+			border-right: 1px solid $lineColor;
+			transform: rotate(45deg);
+			transform-origin: right bottom;
+			position: absolute;
+			left: 110%;
+		}
+	}
+
+
+	&__represent {
+		width: 95%;
+	}
+	&__represent-text {
+		margin-top: 13px;
+	}
+
+
+	&__presents {
+		width: 46%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 30px;
+		position: relative;
+	}
+
+}
+
+.photograph {
+	width: 49%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	position: relative;
+
+	&__name {
+		margin-top: 23px;
+	}
+
+	&__text {
+		margin-top: 7px;
+		font-weight: 400;
+		font-size: 14px;
+	}
+	&__button {
+		margin-top: 10px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 21px;
+		color: $showColor;
+		cursor: pointer;
+	}
+
+	&__like {
+		position: absolute;
+		left: 102%;
+		top: -5%;
+		cursor: pointer;
+	}
+}

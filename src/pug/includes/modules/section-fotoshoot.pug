@@ -1,0 +1,30 @@
+
+block variables
+
+section.main__fotoshoot.fotoshoot
+	.fotoshoot__container.container
+		.fotoshoot__presents
+			.fotoshoot__description
+				.fotoshoot__title
+					h2 Фотосессия в  вертолете
+				.fotoshoot__text
+					p Полет на вертолете это прекрасная возможность получить новые ощущения! А наш замечательный фотограф запечатлит лучшие моменты
+				.fotoshoot__desc.desc
+					ul.desc__list
+						include ../mixins/desc
+			.fotoshoot__img
+				img(src="/assets/img/copter-session-3.png" alt="copter-session")
+				.fotoshoot__play
+					<svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 23C0.136752 15.6439 0 0 0 0L16 11.5245L0 23Z" fill="white"/></svg>
+		include ../modules/commits
+		.fotoshoot__fotos.fotos
+			.fotos__title
+				h3 Фотографии пакета
+			.fotos__collection
+				ul.fotos__list
+					for item in fotoCollection
+						li.fotos__item
+							img(src= item.photo alt= item.name)
+			.fotos__show-button
+				.fotos__button Показать все фото
+

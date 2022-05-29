@@ -83,7 +83,10 @@ input, textarea, select, button {
     outline: none !important;
   }
 }
-button, input { line-height: normal; }
+button, input {
+  line-height: normal;
+  background: #FFFFFF;
+}
 
 // Table
 table { border-collapse: collapse; border-spacing: 0; }
