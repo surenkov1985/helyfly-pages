@@ -1,0 +1,23 @@
+block variables
+
+mixin reviewCard(item)
+
+	li.cards__item
+		article.cards__container
+			.cards__photo
+				img(src= reviewCards[item].photo alt= item)
+			.cards__content
+				.cards__title
+					h4= item
+				.cards__job
+					p= reviewCards[item].jobTitle
+				.cards__rating
+					.cards__rating-star !{star}!{star}!{star}!{star}!{star}
+					.cards__rating-like
+						<svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6.5L6.6 12.5L16 1" stroke="#6AAD4A" stroke-width="2.5"/></svg>
+					.cards__rating-text
+						p= reviewCards[item].rating
+				.cards__review
+					p= reviewCards[item].review
+				.cards__date
+					p= reviewCards[item].date

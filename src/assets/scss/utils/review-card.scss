@@ -1,0 +1,70 @@
+.cards {
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: 30px;
+	}
+
+	&__container {
+		display: flex;
+		column-gap: 19px;
+	}
+
+	&__photo {
+		width: 100px;
+	}
+	&__content {
+		width: 44.6%;
+		border-bottom: 1px solid $lineColor;
+		padding: 10px 0 30px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 11px;
+	}
+	&__title h4 {
+		font-weight: 500;
+		font-size: 18px;
+		color: $mainFontColor;
+	}
+	&__job p {
+		font-weight: 400;
+		font-size: 14px;
+		color: $mainFontColor;
+	}
+	&__rating {
+		display: flex;
+		align-items: center;
+	}
+	&__rating-star {
+		margin-right: 50px;
+		white-space: nowrap;
+	}
+	&__rating-star > svg {
+		&:not(:last-child) {
+			margin-right: 7px;
+		}
+	}
+	&__rating-like {
+		margin-right: 5px;
+	}
+	&__rating-text p {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 21px;
+		color: $mainLightFont;
+	}
+	&__review {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		color: $mainFontColor;
+		margin-top: 11px;
+	}
+	&__date {
+		font-weight: 400;
+		font-size: 14px;
+		color: $mainLightFont;
+		margin-top: 5px;
+	}
+}

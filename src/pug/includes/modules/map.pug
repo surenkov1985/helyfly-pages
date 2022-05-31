@@ -1,0 +1,10 @@
+block variables
+
+include ../mixins/map-list
+.map
+	#map
+	.map__block.container
+		.map__hint
+			ul.map__list
+				for key in mapBlock
+					+mapList(key)

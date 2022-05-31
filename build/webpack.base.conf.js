@@ -24,7 +24,8 @@ const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.p
 module.exports = {
 	// BASE config
 	externals: {
-		paths: PATHS
+		paths: PATHS,
+		// ymaps: 'ymaps'
 	},
 	entry: {
 		app: PATHS.src,

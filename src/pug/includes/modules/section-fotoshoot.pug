@@ -1,6 +1,8 @@
 
 block variables
 
+include ../modules/commits
+
 section.main__fotoshoot.fotoshoot
 	.fotoshoot__container.container
 		.fotoshoot__presents
@@ -16,7 +18,7 @@ section.main__fotoshoot.fotoshoot
 				img(src="/assets/img/copter-session-3.png" alt="copter-session")
 				.fotoshoot__play
 					<svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 23C0.136752 15.6439 0 0 0 0L16 11.5245L0 23Z" fill="white"/></svg>
-		include ../modules/commits
+		+commit("fotoshoot__commits")
 		.fotoshoot__fotos.fotos
 			.fotos__title
 				h3 Фотографии пакета

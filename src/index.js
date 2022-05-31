@@ -1,4 +1,5 @@
 // JS
+// import ymaps from 'ymaps';
 import './js/'
 
 // SCSS

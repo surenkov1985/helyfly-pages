@@ -1,0 +1,221 @@
+.modal {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		row-gap: 30px;
+		position: absolute;
+		//top: 25%;
+		padding: 60px 97px;
+		max-width: 615px;
+		background: $defaultColor;
+	}
+
+	&__bg {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background: rgba($borderButtonArray, 0.5);
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		//align-items: center;
+		row-gap: 10px;
+
+		& > input {
+			width: 100%;
+			border: 1px solid $lineColor;
+			border-radius: 3px;
+			padding: 12px 20px;
+			font-weight: 400;
+			font-size: 16px;
+
+			&:active::-moz-placeholder {
+				color: transparent;
+			}
+			&:focus::-moz-placeholder {
+				color: transparent;
+			}
+			&:focus::-webkit-input-placeholder {
+				color: transparent;
+			}
+		}
+
+
+	}
+
+	&__title h3{
+		text-align: center;
+		font-weight: 600;
+		font-size: 22px;
+		color: $mainFontColor;
+
+	}
+
+	&__button {
+		width: 90%;
+		font-weight: 600;
+		font-size: 16px;
+		color: $activeColor;
+		border: 2px solid $activeColor;
+		cursor: pointer;
+		padding: 25px 40px;
+		border-radius: 3px;
+		margin: 0 auto;
+		transition: all $transitionTime;
+
+		&:hover {
+			color: $defaultColor;
+			background: $activeColor;
+		}
+	}
+	&__close-icon {
+		width: 60px;
+		height: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		right: 0;
+		top: 0;
+		cursor: pointer;
+	}
+}
+.form {
+
+	&__text_black > span {
+		font-weight: 500;
+		font-size: 16px;
+		color: $mainFontColor;
+
+	}
+
+	&__text_red {
+		color: red;
+	}
+
+	&__card-data {
+		width: 100%;
+		border: 1px solid $lineColor;
+		border-radius: 3px;
+
+		&>input:focus::-moz-placeholder {
+			color: transparent;
+		}
+		&>input:focus::-webkit-input-placeholder {
+			color: transparent;
+		}
+	}
+	&__card-number {
+		width: 100%;
+		border-bottom: 1px solid $lineColor;
+		padding: 12px 20px;
+		font-weight: 400;
+		font-size: 16px;
+	}
+	&__card-date {
+		width: 50%;
+		border-right: 1px solid $lineColor;
+		padding: 12px 20px;
+		font-weight: 400;
+		font-size: 16px;
+	}
+	&__card-code {
+		width: 50%;
+		padding: 12px 20px;
+		font-weight: 400;
+		font-size: 16px;
+	}
+
+	&__date {
+		width: 100%;
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		&>input {
+			width: 100%;
+			border: 1px solid $lineColor;
+			border-radius: 3px;
+			padding: 12px 20px;
+			font-weight: 400;
+			font-size: 16px;
+		}
+
+		& > input::-webkit-calendar-picker-indicator {
+			opacity:0;
+		}
+	}
+}
+.calendar-icon {
+	position: absolute;
+	right: 17px;
+	width: 27px;
+	height: 27px;
+	border: 1px solid $lineColor;
+	border-radius: 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: all $transitionTime;
+
+	& > svg path {
+		fill: $lineColor;
+	}
+
+	&:hover > svg path {
+		fill: $activeColor;
+	}
+}
+.check {
+	display: flex;
+	column-gap: 10px;
+	align-items: flex-start;
+
+	&__box {
+		opacity: 0;
+		position: relative;
+
+		&:checked ~ .check__false-box {
+			background: $activeColor;
+			border-color: $activeColor;
+		}
+	}
+	&__false-box {
+		position: absolute;
+		width: 16px;
+		height: 16px;
+		border: 1px solid $lineColor;
+		border-radius: 2px;
+		z-index: 3;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}
+}
+
+.calendar-modal {
+	position: absolute;
+	top: 120%;
+	right: 0;
+	display: none;
+
+	&.active {
+		display: flex;
+	}
+}

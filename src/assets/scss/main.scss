@@ -8,6 +8,12 @@
 @import "utils/desc";
 @import "utils/commits";
 @import "blocks/section-sponsor";
+@import "blocks/entry";
+@import "utils/date-picker";
+@import "blocks/review";
+@import "utils/review-card";
+@import "blocks/footer";
+@import "utils/modal.cscc";
 
 body {
 	width: 100%;
@@ -37,6 +43,14 @@ body {
 	z-index: 10;
 }
 
+.logo {
+	font-family: $mainFont;
+	text-transform: uppercase;
+	font-size: 33px;
+	font-weight: $mediumFontWeight;
+	letter-spacing: -2px;
+}
+
 .main {
 	width: 100%;
 	//display: flex;
@@ -44,5 +58,109 @@ body {
 	//align-items: center;
 	//justify-content: flex-start;
 }
+.section__map {
+	width: 100%;
+}
 
 
+#map {
+	width: 100%;
+	height: 509px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+//.map {
+//	display: flex;
+//	justify-content: center;
+//	align-items: center;
+//	&__meeting {
+//		position: relative;
+//	}
+//}
+
+.meeting {
+	width: 100%;
+	&__container {
+		position: relative;
+		background: $defaultColor;
+		//width: 30%;
+		height: 20px;
+	}
+}
+
+.map{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__block {
+		position: absolute;
+		left: 27.5%;
+		height: 92%;
+		width: 20%;
+		max-width: 420px;
+	}
+
+	&__hint {
+		width: 100%;
+		background: $defaultColor;
+		padding: 50px 30px;
+		border: 1px solid $lineColor;
+
+
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: 35px;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+		column-gap: 18px;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: 2px;
+	}
+
+	&__info {
+		min-width: 61px;
+		max-width: 67px;
+		min-height:61px;
+		max-height: 67px;
+		background: $activeColor;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $defaultColor;
+		font-weight: 700;
+		font-size: 35px;
+	}
+
+	&__title {
+		font-weight: 500;
+		font-size: 18px;
+		color: $mainFontColor;
+	}
+
+	&__text {
+		font-weight: 400;
+		font-size: 18px;
+		color: $mainFontColor;
+	}
+
+	&__more {
+		font-weight: 500;
+		font-size: 14px;
+		color: $showColor;
+		cursor: pointer;
+	}
+
+}

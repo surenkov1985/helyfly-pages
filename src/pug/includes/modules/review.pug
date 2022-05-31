@@ -1,0 +1,14 @@
+block variables
+
+include ../mixins/review-card
+
+section.reviews
+	.reviews__container.container
+		.reviews__title
+			h3 Отзывы:
+		.reviews__cards.cards
+			ul.cards__list
+				for index, key in reviewCards
+					+reviewCard(key)
+		.reviews__more.more
+			.more__text Показать Все(134)

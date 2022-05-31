@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "jquery": "^3.6.0",
+    "jquery-mask-plugin": "^1.14.16",
     "vue": "^2.6.10"
   }
 }

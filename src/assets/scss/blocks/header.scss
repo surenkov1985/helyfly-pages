@@ -13,13 +13,9 @@
 		column-gap: 38px;
 	}
 
-	&__logo {
-		font-family: $mainFont;
-		text-transform: uppercase;
-		font-size: 33px;
-		font-weight: $mediumFontWeight;
-		letter-spacing: -2px;
-	}
+	//&__logo {
+	//
+	//}
 
 	&__present {
 		position: relative;
@@ -40,7 +36,6 @@
 		justify-content: center;
 		align-items: center;
 		background: $productNameColor;
-		z-index: -2;
 	}
 
 	&__background {
@@ -161,7 +156,13 @@
 		padding: 10px 40px;
 		cursor: pointer;
 		border-radius: 3px;
-		z-index: 20;
+		transition: all $transitionTime;
+
+		&:hover {
+			background: $activeColor;
+			color: $defaultColor;
+			border-color: $activeColor;
+		}
 	}
 }
 

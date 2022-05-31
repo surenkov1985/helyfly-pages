@@ -1,0 +1,15 @@
+block variables
+
+.date-picker
+	.date-picker__mount.mount
+		.mount__text= mount
+		.mount__after
+			.mount__after_arrow
+		.mount__before
+			.mount__before_arrow
+	.date-picker__week-days.week-days
+		ul.week-days__list
+			for index, val in weekDays
+				li(class= val).week-days__item= weekDays[val].abbr
+	.date-picker__days.days
+		ul.days__list

@@ -1,0 +1,10 @@
+block variables
+
+mixin mapList(item)
+	li.map__item
+		.map__info
+			| !{item.info}
+		.map__content
+			.map__title= item.title
+			.map__text= item.text
+			.map__more.more= item.more
