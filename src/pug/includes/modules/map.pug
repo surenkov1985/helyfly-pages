@@ -1,6 +1,7 @@
 block variables
 
 include ../mixins/map-list
+include ../mixins/map-sponsor
 .map
 	#map
 	.map__block.container
@@ -8,3 +9,15 @@ include ../mixins/map-list
 			ul.map__list
 				for key in mapBlock
 					+mapList(key)
+			+sponsor(mapSponsor)
+		.map__hint.false
+			button.arrow-left !{arrow}
+			button.arrow-right !{arrow}
+			ul.false__list
+				for key in mapBlock
+					+mapList(key)
+			.false__rings
+				.false__ring.active !{ring}
+				.false__ring !{ring}
+				.false__ring !{ring}
+			+sponsor(falseSponsor)

@@ -11,11 +11,21 @@
 		justify-content: flex-start;
 		align-items: center;
 		column-gap: 38px;
+
+		@media (max-width: $tableWidth) {
+			display: none;
+		}
 	}
 
-	//&__logo {
-	//
-	//}
+
+	&__sity {
+
+		& > p {
+			font-weight: 400;
+			font-size: 14px;
+			color: $showColor;
+		}
+	}
 
 	&__present {
 		position: relative;
@@ -27,6 +37,7 @@
 	}
 	&__contacts {
 		display: flex;
+		column-gap: 3px;
 	}
 
 	&__present {
@@ -36,6 +47,10 @@
 		justify-content: center;
 		align-items: center;
 		background: $productNameColor;
+
+		@media (max-width: $tableWidth) {
+			margin-top: 60px;
+		}
 	}
 
 	&__background {
@@ -53,6 +68,10 @@
 		width: 100%;
 		height: 840px;
 		object-fit: cover;
+
+		@media (max-width: $tableWidth) {
+			height: 655px;
+		}
 	}
 
 	&__description {
@@ -64,7 +83,9 @@
 		row-gap: 20px;
 		position: absolute;
 
+		@media (max-width: $tableWidth) {
 
+		}
 	}
 
 	&__title {
@@ -73,6 +94,14 @@
 		font-size: 40px;
 		line-height: 49px;
 		margin-top: 25px;
+
+		@media (max-width: $tableWidth) {
+			width: 80%;
+			font-weight: 700;
+			font-size: 32px;
+			line-height: 39px;
+			margin-top: -14px;
+		}
 
 		&_white {
 			color: $defaultColor;
@@ -102,16 +131,23 @@
 		&::before {
 			content: '';
 			position: absolute;
-			top: 92%;
-			left: 53%;
-			width: 25px;
-			height: 25px;
+			top: 110%;
+			left: 58%;
+			width: 17px;
+			height: 15px;
 			transform-origin: top left;
-			transform: rotate(-45deg);
+			transform: matrix(-0.81,-0.58,0.91,-0.58,0,0);
 			background: $activeColor;
 			border-radius:0 0 0 4px;
 			//box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 			//z-index: -1;
+		}
+		@media (max-width: $tableWidth) {
+			min-width: 200px;
+			max-width: 280px;
+			margin-top: 16px;
+			padding: 10px 15px;
+			column-gap: 17px;
 		}
 	}
 
@@ -120,12 +156,20 @@
 		font-size: 20px;
 		//line-height: 151.16%;
 		color: $defaultColor;
+
+		@media (max-width: $tableWidth) {
+			font-size: 18px;
+		}
 	}
 
 	&__rate {
 		font-weight: 800;
 		font-size: 35px;
 		color: $defaultColor;
+
+		@media (max-width: $tableWidth) {
+			font-size: 30px;
+		}
 	}
 
 	&__sale {
@@ -135,11 +179,17 @@
 		border: 1px solid $defaultColor;
 		border-radius: 50%;
 		filter: drop-shadow(0px 4px 15px rgba(255, 255, 255, 0.25)) drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.25));
-		min-width: 52px;
+		width: 52px;
 		height: 52px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		@media (max-width: $tableWidth) {
+			font-size: 30px;
+			width: 47px;
+			height: 47px;
+		}
 	}
 
 	&__button {
@@ -158,6 +208,12 @@
 		border-radius: 3px;
 		transition: all $transitionTime;
 
+		@media (max-width: $tableWidth) {
+			font-size: 16px;
+			border-radius: 4px;
+			padding: 10px 37px;
+		}
+
 		&:hover {
 			background: $activeColor;
 			color: $defaultColor;
@@ -166,6 +222,68 @@
 	}
 }
 
+.false {
+
+	&__logo {
+		font-size: 22px;
+		font-family: $mainFont;
+		text-transform: uppercase;
+		font-weight: $mediumFontWeight;
+	}
+
+	&__content {
+		width: 100%;
+		padding: 0 5%;
+		height: 60px;
+		letter-spacing: -2px;
+		grid-template-columns: repeat(3, 1fr);
+		align-items: center;
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: $defaultColor;
+		z-index: 19;
+		border-bottom:1px solid $lineColor;
+
+		@media (max-width: $tableWidth) {
+			display: grid;
+		}
+	}
+
+	&__contacts-icon {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	&__link {
+		width: 50px;
+		height: 50px;
+		margin-right: -15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+
+			& > svg{
+				opacity: 0.5;
+			}
+		}
+	}
+
+	&__sity {
+		cursor: pointer;
+		padding: 10px;
+
+		& > p {
+			font-weight: 400;
+			font-size: 14px;
+			color: $showColor;
+		}
+	}
+}
 .contacts {
 
 	&__type {
@@ -177,6 +295,11 @@
 		font-weight: 400;
 		font-size: 14px;
 		color: #37373F;
+
+		&:hover {
+			color: $showColor;
+			text-decoration: underline;
+		}
 
 	}
 }

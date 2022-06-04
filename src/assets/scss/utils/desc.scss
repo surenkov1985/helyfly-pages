@@ -5,7 +5,44 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 16px;
+
+		@media (max-width: $phoneWidth) {
+			row-gap: 3px;
+			& .watch {
+				margin-top: 19px;
+				column-gap: 10px;
+				& > .desc__icon {
+					width: 32px;
+
+					& > svg {
+						width: 32px;
+					}
+				}
+			}
+
+			& .speech {
+				margin-top: 4px;
+			}
+
+			& .money {
+				margin-top: 10px;
+
+				& .desc__text {
+					font-weight: 600;
+				}
+			}
+
+			& .marker {
+				margin-top: 12px;
+			}
+
+			& .photo {
+				margin-top: 13px;
+				line-height: 20px;
+			}
+		}
 	}
+
 	&__item {
 		display: flex;
 		align-items: center;

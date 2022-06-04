@@ -10,5 +10,11 @@ section.reviews
 			ul.cards__list
 				for index, key in reviewCards
 					+reviewCard(key)
-		.reviews__more.more
-			.more__text Показать Все(134)
+			.reviews__more.more
+				button.more__text.more
+					| !{arrow}
+					p Показать Все (134)
+					| !{arrow}
+				button.more__text-false.more
+					p Показать Все (134)
+					| !{arrow}

@@ -6,29 +6,73 @@
 
 	&__icon {
 		height: 48px;
+
+		@media (max-width: $smPhoneWidth) {
+			height: 39px;
+		}
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		-webkit-column-gap: 10px;
+		-moz-column-gap: 10px;
+		column-gap: 10px;
+
+		@media (max-width: $smPhoneWidth) {
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+		}
 	}
 
 	&__text {
 		font-weight: 400;
 		font-size: 18px;
 		color: $mainFontColor;
+		white-space: nowrap;
+		display: flex; align-items: center;
+		column-gap: 5px;
+
+
+
+		@media (max-width: $smPhoneWidth) {
+			font-weight: 400;
+			font-size: 13px;
+		}
+	}
+
+	&__numb {
+		font-weight: 600;
 	}
 
 	&__rating {
 		white-space: nowrap;
+		display: flex;
+		align-items: center;
+
 
 		&>svg:first-child {
 			margin-left: 5px;
-			cursor: pointer;
+
+			@media (max-width: $smPhoneWidth) {
+				margin-left: 0;
+			}
 		}
 		&>svg:not(:first-child) {
 			margin-left: 7px;
-			cursor: pointer;
+		}
+
+		@media (max-width: $smPhoneWidth) {
+			& > svg {
+				width: 17px;
+				height: 16px;
+			}
 		}
 	}
 }
 .fotoshoot__commits {
 	border-top: 1px solid $lineColor;
 	border-bottom: 1px solid $lineColor;
-	min-height: 87px;
+	height: 87px;
 }

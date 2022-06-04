@@ -9,30 +9,55 @@
 		align-items: center;
 		justify-content: space-between;
 		align-items: flex-start;
-		padding: 40px 85px 40px 65px;
+		padding: 32px 65px;
+
+		@media (max-width: $smTableWidth) {
+			padding: 30px 0 15px;
+		}
 	}
 
+	&__logo {
+		margin-top: 10px;
+	}
 	&__social {
 		display: flex;
 		align-items: center;
-		column-gap: 30px;
+		column-gap: 13px;
 	}
 
 	&__lang {
+		width: 50px;
+		height: 50px;
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		column-gap: 6px;
 		position: relative;
+		cursor: pointer;
+		transition: all $transitionTime;
 
-		&:before {
-			content: '';
-			width: 8px;
-			height: 8px;
-			border-bottom: 1px solid $lineColor;
-			border-right: 1px solid $lineColor;
-			transform: rotate(45deg);
-			position: absolute;
-			left: 120%;
+		@media (max-width: $smTableWidth) {
+			display: none;
 		}
+
+		& > p {
+			font-family: $mainFont;
+			font-weight: 400;
+			font-size: 15px;
+			color: $mainFontColor;
+		}
+
+		&:hover {
+
+			& > p {
+				font-weight: 500;
+			}
+			& > svg path {
+				fill: $productNameColor;
+			}
+
+		}
+
 	}
 
 	&__copyrait {
@@ -42,16 +67,67 @@
 		display: flex;
 		justify-content: center;
 
+		@media (max-width: $smTableWidth) {
+			background: $defaultColor;
+			border-top: 1px solid $lineColor;
+			padding: 13px 0 20px;
+		}
+
 	}
 }
 .social {
 
+	@media (max-width: $tableWidth) {
+		margin-top: 3px;
+	}
+
 	&__list {
 		display: flex;
 		align-items: center;
-		-webkit-column-gap: 30px;
-		-moz-column-gap: 30px;
-		column-gap: 30px;
+		-webkit-column-gap: 6px;
+		-moz-column-gap: 6px;
+		column-gap: 6px;
+
+		@media (max-width: $tableWidth) {
+			column-gap: 21px;
+		}
+	}
+
+	&__item {
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		@media (max-width: $tableWidth) {
+			width: 35px;
+			height: 40px;
+		}
+
+		&>a {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: all $transitionTime;
+
+			&:hover {
+
+				& > svg {
+					opacity: 0.5;
+				}
+			}
+		}
+
+		&:hover {
+
+			 & > svg {
+				 opacity: 0.5;
+			 }
+		}
 	}
 
 }
@@ -64,20 +140,49 @@
 		justify-content: center;
 		align-items: flex-start;
 		position: relative;
+
+		@media (max-width: $smTableWidth) {
+			flex-direction: column-reverse;
+			align-items: center;
+			row-gap: 4px;
+		}
 	}
-	&__cards {
+
+	&__payment {
+		width: 100%;
 		position: absolute;
 		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		top: 0;
+		height: 50px;
+		//left:6%;
+		padding: 0 65px;
+		
+		@media (max-width: $smTableWidth) {
+			position: relative;
+			padding: 0;
+		}
+	}
+	&__cards {
+
+		display: flex;
+		align-items: center;
 		-webkit-column-gap: 10px;
 		-moz-column-gap: 10px;
 		column-gap: 19px;
-		top: 10%;
-		left:6%;
+
+		@media (max-width: $smTableWidth) {
+			-webkit-column-gap: 17px;
+			-moz-column-gap: 17px;
+			column-gap: 17px;
+		}
 	}
 	&__text {
 		display: flex;
 		flex-direction: column;
-		row-gap: 8px;
+		row-gap: 11px;
+		margin-top: 7px;
 	}
 	&__text p {
 		text-align: center;
@@ -85,5 +190,82 @@
 		font-size: 14px;
 		line-height: 17px;
 		color: $mainLightFont;
+
+	}
+	&__lang {
+		width: 50px;
+		height: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 6px;
+		position: relative;
+		cursor: pointer;
+		background: transparent;
+		display: none;
+		transition: all $transitionTime;
+		& > p {
+			font-family: $mainFont;
+			font-weight: 400;
+			font-size: 15px;
+			color: $mainFontColor;
+		}
+
+		&:hover {
+
+			& > p {
+				font-weight: 500;
+			}
+			& > svg path {
+				fill: $productNameColor;
+			}
+
+		}
+
+		@media (max-width: $smTableWidth) {
+			display: flex;
+		}
+	}
+}
+
+.master-card {
+	width: 39px;
+	height: 25px;
+
+	@media (max-width: $smTableWidth) {
+		width: 34px;
+		height: 23px;
+	}
+	& > img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.visa {
+	width: 39px;
+	height: 25px;
+
+	@media (max-width: $smTableWidth) {
+		width: 34px;
+		height: 23px;
+	}
+	& > img {
+		width: 100%;
+		height: 100%;
+	}
+}
+.pay-pal {
+	width: 34px;
+	height: 23px;
+	display: none;
+
+	@media (max-width: $smTableWidth) {
+		display: block;
+	}
+
+	& > img {
+		width: 100%;
+		height: 23px;
 	}
 }

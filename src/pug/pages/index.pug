@@ -10,7 +10,15 @@ block header
 			.header__logo.logo helyfly
 			.header__contacts.contacts
 				p.contacts__type Телефон:
-				a(href="tel:+78001231212").contacts__link 8(800)-123-12-12
+				a(href="tel:+78001231212").contacts__link
+					p  8(800)-123-12-12
+		.false__content
+			.false__logo helyfly
+			button.false__sity.more
+				p Москва
+			.false__contacts-icon
+				a(href="tel:+78001231212").false__link
+					<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect width="20" height="20" fill="url(#pattern0)"/><defs><pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image0_0_899" transform="scale(0.05)"/></pattern><image id="image0_0_899" width="20" height="20" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABkElEQVQ4jaXTz0sVYRTG8Y9TLlyES3GRIK7TVupfIEYodY0SpFXtJCGkliEIFYq6uARFtooQTBL8E+7KcOWyFi4UWraqK/bLFnMu6NyZ64gPvDCc85zve+Z939M2/3JBgS7jAe5jIGK7eI93+JNXlBTAOlHDa3ThY6yuiNXCk9tFVm1YxyBm8Ar/TjQwjZXwjOL4rA5vYARzqJ6Aie9q5EbCe0p5wAkcYjkn19ByeCbKAHvxBfUWwHp4essAfys48Iw6w3smcDt27m8Buxae7TLAVfzEG3Tk5DvwNjyrZYAH0ucyjM8Yw5VYY9HVUHgOssV57xA+4CYq2MrJfwpPk/KAd7CEHnzHDr7hF65G5xV8xSw2ioCXpBPwKMz3sKn5JttxG/PScaziMf5y+gxfBGwN16Wj1fQsIrYenrWoeZ7tsIInYZiSmc8CHYYXnkovazOJX1jAHh6WhDV0HDV7WER7gkn04ZnW41aketT24W6CcfyQua1zaiMYtxLpiNVwdAHgUTD6E3Rj/wKwhvbR/R88q1yiIYgNFAAAAABJRU5ErkJggg=="/></defs></svg>
 		include ../includes/modules/header
 
 block footer
@@ -22,15 +30,22 @@ block footer
 					ul.social__list
 						for index, value in socialIcon
 							+socialItem(value)
-				.foot__lang RU
+				button.foot__lang
+					p RU
+					| !{arrow}
 		.foot__copyrait.copyrait
 			.copyrait__content.container
 				.copyrait__text
 					p Тех. поддержка: 8(800)700-00-00
 					p © 2018 HELYFLY. All Rights Reserved.
-				.copyrait__cards
-					.master-card
-						<svg width="39" height="25" viewBox="0 0 39 25" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect width="39" height="25" fill="url(#pattern0)"/><defs><pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image0_0_24" transform="scale(0.025641 0.04)"/></pattern><image id="image0_0_24" width="39" height="25" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAZCAYAAACy0zfoAAAEUElEQVRIia2Wz29UVRTHP/e+H/OjP6CFNikEqF1YKwkohEBiYyIRE4kaF8YYE03YuHNj8A9wQ1y4c+tKYxriQmIC7MBoRBAStBBba7SlNYBYO/0xnZn35r17XNw7lEpl3nT8JpP75r1zz/28e+457ygR1jS9B249CWhIQkBAZBj0K8ABvHQ3RvfhpUvAHPXgZ4qVM6TqGl4HTCQwZSBJoFzey67el0n0AWAXJNsQFsCbQ8lNlPclosehCn4ApSVIemHHQYhjQFAPwc2OgNIQ5Y+hzUmQF1DOSNT6UQsIYLjJNv0hN2WM6+lzdHkfoHgGATD2JdFukcaCClA/gPkI3/uiOdzsTvhtn0byn5ByAm1oKgN0ARFwmRkWGCTvFl/nfCOJtQu8c/y9cIJ42z12H4bIwul1tvVCNys9P5LqbGDiwMrABeAegxTc/aZg7gUAUnOcQniDrtwTJIl7Y4OSK0dADBD61LaOU8uPEMRroXsUWBG7Y18Dy0A3a1FrRQJ4gAqXkWQEXb0NHj53Bq2Bz1cE9RHCCIx+hCenwDm9CiwBWzYJBnYDjQKibogvImYYSdHk6lCMjlOovoiXZAMDKABTwCzQ0QbYfbnzR/5xTPEkpgONMuClH7fkPMCGccZBgg3v/yIB5BT5VPsE1YOY/ND9cpFFKZAATzvQAJgDfnXXTY5rU3k6YLX2tmZr+S3quewTxcF1AnuAAWDQjY2S1q4KAZTqr/ss9T5F2EJMPDf+hA1tiK2v80DswEP32yxoJYa+ziGfxBvGS5uXjoYUdoeqQM3BCDZb+93zEvYMNjK6VRkDnu7z0aYnMxgOxgCHgZz7/6By2F38FqgD/ibglAIjeR9bpfpbdhDz32csbiyyCbAHvPgoPYUx/ZkdaWy4rgB3saXEYHcs74BW3D2fdhJk3kelN1BqNPOUxmJ9DjTnIOaBP9110DYYCNOanvkxFNkTQrBhGwKOAs8Cx4BDDijEZvRmwQTI+ZDUzyj59B3Yunyb7pUBkoynVzkni24sYIvwDO0XYSXgBbBo8pokhUS9R1QgU5uEA+rAhvICNjOnsSFuByw10FOE5fgUk6VIyfh+iHJQ7vueuHAEr57Nke9AvnGQ7XQlDRVDWKnd5fNLO6hUZK0T/qt/C5efn6BQHUBlbDQ7gFXgIrYgd7YBqBRs7xI++24vV3+fAB7ohMPaEl79CKL/yNQ2KQfWBYxiQ7q6zmMLYAJIRGpGWalONG6vuUoCMHqWQmUfuegsRjXfhUZN68Vmbi8Vai1AaWUz23jXkNx+lFwiF6w9XmcsCsK4RG71JbR+A09dt1Zin20EawHvsJ332WUeI+JNbBv6sEQg9G2pECBNb1GWd1nxDyH6l3+bP1w7jLYTfTlNmJ6mokeJvdcI0mFgJ6Ly2C/qPWAS1Dk056mamBhQjIGMoTgK6lWEEWxDFeLpOqXVu6Rmkp6OsyyWzxPlhUCxUT/5D47ZqFQM1MxzAAAAAElFTkSuQmCC"/></defs></svg>
-					.visa
-						<svg width="39" height="27" viewBox="0 0 39 27" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect width="39" height="27" fill="url(#pattern0)"/><defs><pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#image0_0_25" transform="scale(0.025641 0.037037)"/></pattern><image id="image0_0_25" width="39" height="27" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAbCAYAAAD/G5bjAAACcUlEQVRYhe3Xy4uPYRTA8c/8MBIhZTJE45YxJktKEokyorBQqFEkQvwLrCQLl4VLiomVlMW45ZIUjWGDXAq51RBWbmEyWDzn1/v6Zean2cws5mzOc57ndJ7ve55znqe3onpCYz9MwwC9R37iYX/swfYehvmXHClgck9TdCJjCj1N0JX0wXVX+uC6K/1L7Bu4gI6wB2M9qnM+V/A8xqtwDW/Dd3XM/8JltMTaSMzD/FycNzgfvjVYWA5uNiZhPw7gC97HGNoD6APqsQHb8AKzAu4dluBOSeybObjfaMC9sGvxuBwcjMIOVKEJrbm15gCDrfiKl2FPC70pwApoxPiAH5uLcz0HBk/wEcPKwZGesmYp1VeljFXiWKwPlzL4SMpCHu5a6LE4iIH/iL83dF3E+IXbWJB36qohGrAbM/EAbbgYa2sxJAIXpS50behX0tGfKYn7TPpw2CnLVkspQFdwi0Ifk7LTJDVKAZtj7WHOv5i5k5iaA1mOlbIm2y9lqgpLMSPm8+VTFq4O4/ANR2VHukBqGrLMDcfoGE/E3YAYEXOncFpqsKaYWxZ28aNKG6jsPbc49HEpC6RGKMqD0PWh20NXht++nO8b6QM/hX044Iv19yG3BzpviKI0SEX9PexJsuP+jNcxLtbbHOm4pqMCJ2K+n3SNrCiz3y3ZqZSFmyt124+wN8qy/djfndqB+1IZNGchDJKy80KWmQPYkvMZL11JrVjzv3BDcEi6WGFdbm0odsV4UUBfkrquLewpUtFXS69B0X9VyT67pVenJj9ZUT2h8aystnqTnOvVD38fXHelD667UsDTnoboRNoqevMf/x86MIXzmgBmpAAAAABJRU5ErkJggg=="/></defs></svg>
-
+				.copyrait__payment
+					.copyrait__cards
+						.master-card
+							img(src="assets/img/master-card.png" alt="master-card")
+						.visa
+							img(src="assets/img/visa.png" alt="visa-icon")
+						.pay-pal
+							img(src="assets/img/pay-pal.png" alt="paypal-icon")
+					button.copyrait__lang
+						p RU
+						| !{arrow}

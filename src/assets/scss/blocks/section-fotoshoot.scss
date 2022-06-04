@@ -8,9 +8,14 @@
 	&__container {
 		display: flex;
 		flex-direction: column;
-		row-gap: 30px;
-		padding: 70px 3px 25px;
+		row-gap: 25px;
+		padding: 40px 3px 20px;
 		border-bottom: 1px solid $lineColor;
+
+		@media (max-width: $tableWidth) {
+			border: none;
+			padding-bottom: 0;
+		}
 	}
 
 	&__presents {
@@ -20,62 +25,215 @@
 	}
 
 	&__description {
-		width: 48%;
+		display: grid;
+		grid-template-areas:
+				"title slide"
+				"text slide"
+				"desc slide";
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 3%;
+		width: 100%;
 		height: 100%;
-		//padding-left: 2px;
-		display: flex;
 		flex-direction: column;
 		row-gap: 9px;
 		justify-content: space-around;
+
+		@media (max-width: $tableWidth) {
+			grid-template-areas: "title" "slide" "text" "desc";
+			grid-template-columns: 1fr;
+		}
 	}
 
 	&__title{
 		width: 80%;
+		grid-area: title;
+
+		@media (max-width: $tableWidth) {
+			width: 100%;
+			text-align: center;
+			font-weight: 400;
+			font-size: 28px;
+			line-height: 34px;
+		}
 	}
 
 	&__title h2 {
 		font-weight: 500;
 		font-size: 40px;
 		line-height: 49px;
+
+		@media (max-width: $tableWidth) {
+			font-size: 34px;
+		}
+
+		@media (max-width: $phoneWidth) {
+			font-weight: 400;
+			font-size: 28px;
+			line-height: 34px;
+		}
+	}
+	&__text {
+		grid-area: text;
+
+		@media (max-width: $tableWidth) {
+			margin-top: 8px;
+		}
 	}
 
 	&__text p {
 		font-weight: 400;
 		font-size: 18px;
 		line-height: 26px;
-
 		color: $mainFontColor;
+
+		@media (max-width: $tableWidth) {
+			font-size: 16px;
+			line-height: 20px;
+		}
+		@media (max-width: $phoneWidth) {
+			font-size: 14px;
+			line-height: 20px;
+		}
+	}
+
+	&__desc {
+		grid-area: desc;
+	}
+
+
+
+	&__slide{
+		grid-area: slide;
+		width: 100%;
+		height: 100%;
+		//max-height: 400px;
+
+		@media (max-width: $phoneWidth) {
+			height: 101%;
+		}
 	}
 
 	&__img {
-		width: 48.5%;
-		border-radius: 4px;
+		width: 100%;
+		height: calc(100% + 17px);
+		//height: 100%;
 		position: relative;
-		cursor: pointer;
+		outline: 2px solid rgba($defaultColor, 0.8);
+		outline-offset: -17px;
+		padding: 17px 0;
+		margin-top: -17px;
 
 		&>img {
 			width: 100%;
-			height: 100%;
-			object-fit: contain;
+			//height: 100%;
+			object-fit: cover;
+			border-radius: 5px;
 		}
 	}
 	&__play {
 		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		width: 50px;
+		height: 50px;
 		z-index: 10;
-		right: (41 / 554 * 100%);
-		bottom: (29 / 374 * 100%);
+		right: (24 / 554 * 100%);
+		bottom: (28 / 374 * 100%);
 	}
 
 	&__commits {
 		width: 50%;
 		margin-top: 4px;
+
+		@media (max-width: $tableWidth) {
+			width: 100%;
+		}
+
+		@media (max-width: $phoneWidth) {
+			margin-top: 2px;
+			height: 70px;
+			border-top: 1px solid $lineColor;
+			border-bottom: 1px solid $lineColor;
+			& .commits__icon {
+
+				& > svg {
+					width: 37px;
+					height: 40px;
+				}
+			}
+
+			& .commits__content {
+				row-gap: 7px;
+			}
+
+			& .commits__text {
+
+				@media (max-width: $tableWidth) {
+					font-size: 14px;
+				}
+			}
+			& .commits__rating {
+				margin-left: 2px;
+				column-gap: 1px;
+			}
+			//display: none;
+		}
+	}
+
+	&__commits_small {
+		width: 100%;
+		display: none;
+		margin-top: 2px;
+		height: 70px;
+		border-top: 1px solid $lineColor;
+		border-bottom: 1px solid $lineColor;
+
+		@media (max-width: $phoneWidth) {
+			//display: flex;
+		}
+
+		& .commits__icon {
+
+			& > svg {
+				width: 37px;
+				height: 40px;
+			}
+		}
+
+		& .commits__content {
+			row-gap: 7px;
+		}
+
+		& .commits__text {
+
+			@media (max-width: $tableWidth) {
+				font-size: 14px;
+			}
+		}
+		& .commits__rating {
+			margin-left: 2px;
+			column-gap: 1px;
+		}
+	}
+
+	& .commits__text {
+
+		@media (max-width: $tableWidth) {
+			font-size: 14px;
+		}
 	}
 
 }
 .fotos {
 	display: flex;
 	flex-direction: column;
-	row-gap: 38px;
+	row-gap: 34px;
+
+	@media (max-width: $phoneWidth) {
+		padding: 35px 0 0 0;
+	}
 
 	//padding: 0 2px 30px;
 
@@ -83,60 +241,99 @@
 		font-weight: 500;
 		font-size: 20px;
 		color: $mainFontColor;
+
+		@media (max-width: $tableWidth) {
+			font-weight: 400;
+			font-size: 28px;
+			text-align: center;
+			width: 98%;
+		}
+	}
+
+	&__collection {
+
+		@media (max-width: $phoneWidth) {
+			overflow-x: scroll;
+			padding-bottom: 8px;
+
+			&::-webkit-scrollbar {
+				height: 5px;
+				background: rgba($commitNumbColor, 0.3);
+				border-radius: 3px;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background: rgba($activeColor, 0.7);
+				border-radius: 3px;
+				cursor: pointer;
+			}
+		}
 	}
 
 	&__list {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-		grid-gap: 10px;
+		grid-column-gap: 13px;
+
+		@media (max-width: $phoneWidth) {
+			display: flex;
+			column-gap: 10px;
+			//overflow: auto;
+			width: max-content;
+		}
 	}
 	&__item {
 		cursor: pointer;
+		outline: 1px solid rgba(#fff, 0.8);
+		outline-offset: -10px;
+		padding: 10px 0;
+		margin-top: -10px;
+
+		@media (max-width: $phoneWidth) {
+			width: 90%;
+		}
+
+		@media (max-width: 350px) {
+			max-width: 275px;
+		}
 
 		&>img {
 			width: 100%;
-			object-fit: contain;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 4px;
+			transition: all $transitionTime;
+
+			&:hover {
+				opacity: 0.6;
+			}
 		}
 
 	}
 	&__show-button {
+		//margin-top: 38px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+
+		@media (max-width: $tableWidth) {
+			display: none;
+		}
 	}
 	&__button {
+		padding: 5px 10px;
 		font-weight: 500;
+		font-family: $mainFont;
 		font-size: 17px;
 		color: $showColor;
-		position: relative;
 		display: flex;
 		align-items: center;
-		margin-top: 3px;
-		padding: 0 10px;
+		-webkit-column-gap: 10px;
+		-moz-column-gap: 10px;
+		column-gap: 10px;
 		cursor: pointer;
 
-		&:before {
-			content: '';
-			width: 8px;
-			height: 8px;
-			border-bottom: 1px solid $lineColor;
-			border-right: 1px solid $lineColor;
-			transform: rotate(45deg);
-			position: absolute;
-			left: 100%;
-		}
-
-		&:after {
-			content: '';
-			width: 8px;
-			height: 8px;
-			border-bottom: 1px solid $lineColor;
-			border-right: 1px solid $lineColor;
-			transform: rotate(45deg);
-			position: absolute;
-			right: 100%;
-		}
 	}
 
 }

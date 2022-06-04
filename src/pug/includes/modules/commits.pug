@@ -1,10 +1,11 @@
 block variables
 
-mixin commit(name)
+mixin commit(name, numb)
 	div(class= name).commits
 		.commits__icon !{cupIcon}
-		.commits__text
-			span Более
-			b  50
-			span  отзывов с оценкой
-		.commits__rating !{star}!{star}!{star}!{star}!{star}
+		.commits__content
+			.commits__text
+				span Более
+				span.commits__numb= numb
+				span  отзывов с оценкой
+			.commits__rating !{star}!{star}!{star}!{star}!{star}

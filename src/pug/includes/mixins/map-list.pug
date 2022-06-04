@@ -1,10 +1,11 @@
 block variables
 
 mixin mapList(item)
-	li.map__item
-		.map__info
+	li(class= item.class).map__item
+		div(class= item.imgClass).map__info
 			| !{item.info}
 		.map__content
 			.map__title= item.title
 			.map__text= item.text
-			.map__more.more= item.more
+			if item.more
+				button.map__more.more= item.more

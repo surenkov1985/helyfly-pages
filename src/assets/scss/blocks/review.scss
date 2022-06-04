@@ -6,14 +6,37 @@
 	&__container {
 		display: flex;
 		flex-direction: column;
-		row-gap: 50px;
+		//row-gap: 50px;
 		padding: 130px 2px 30px;
+
+		@media (max-width: $tableWidth) {
+			padding-top: 40px;
+
+		}
 	}
 	 &__title h3 {
 		 font-weight: 500;
 		 font-size: 20px;
 		 color: $mainFontColor;
+
+		 @media (max-width: $tableWidth) {
+			 text-align: center;
+			 font-weight: 400;
+			 font-size: 28px;
+		 }
 	 }
+
+	&__cards {
+		margin-top: 50px;
+
+		@media (max-width: $tableWidth) {
+			margin-top: 47px;
+		}
+	}
+
+	&__more {
+		margin-top: 30px;
+	}
 
 }
 .more {
@@ -22,35 +45,46 @@
 	align-items: center;
 
 	&__text {
-		font-weight: 500;
-		font-size: 17px;
-		color: $showColor;
 		position: relative;
 		display: flex;
 		align-items: center;
-		padding: 0 10px;
+		column-gap: 10px;
+		padding: 10px 20px;
 		cursor: pointer;
 
-		&:before {
-			content: '';
-			width: 8px;
-			height: 8px;
-			border-bottom: 1px solid $lineColor;
-			border-right: 1px solid $lineColor;
-			transform: rotate(45deg);
-			position: absolute;
-			left: 100%;
+		@media (max-width: $tableWidth) {
+			display: none;
 		}
 
-		&:after {
-			content: '';
-			width: 8px;
-			height: 8px;
-			border-bottom: 1px solid $lineColor;
-			border-right: 1px solid $lineColor;
-			transform: rotate(45deg);
-			position: absolute;
-			right: 100%;
+		& > p {
+			font-family: $mainFont;
+			font-weight: 500;
+			font-size: 17px;
+			color: $showColor;
+		}
+	}
+
+	&__text-false {
+		position: relative;
+		display: none;
+		align-items: center;
+		column-gap: 10px;
+		padding: 10px 20px;
+		cursor: pointer;
+
+		@media (max-width: $tableWidth) {
+			display: flex;
+		}
+
+		& > p {
+			font-family: $mainFont;
+			font-weight: 500;
+			font-size: 17px;
+			color: $showColor;
+		}
+
+		& > svg {
+			transform: rotate(-90deg);
 		}
 	}
 }

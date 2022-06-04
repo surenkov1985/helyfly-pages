@@ -35,7 +35,7 @@ module.exports = {
 		// filename: `${PATHS.assets}js/[name].[hash].js`,
 		filename: `${PATHS.assets}js/[name].js`,
 		path: PATHS.dist,
-		publicPath: '/'
+		publicPath: ''
 	},
 	optimization: {
 		splitChunks: {
@@ -136,7 +136,7 @@ module.exports = {
 		new VueLoaderPlugin(),
 		new MiniCssExtractPlugin({
 			// filename: `${PATHS.assets}css/[name].[hash].css`,
-			filename: `${PATHS.assets}css/[name].css`,
+			filename: `[name].[hash].css`,
 		}),
 		new CopyWebpackPlugin([
 			{from: `${PATHS.src}/${PATHS.assets}img`, to: `${PATHS.assets}img`},
@@ -149,7 +149,7 @@ module.exports = {
 		// best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
 		...PAGES.map(page => new HtmlWebpackPlugin({
 			template: `${PAGES_DIR}/${page}`,
-			filename: `./${page.replace(/\.pug/, '.html')}`
+			filename: `./${page.replace(/\.pug/, '.html')}`,
 		}))
 	],
 }

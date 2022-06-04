@@ -6,13 +6,71 @@
 		row-gap: 30px;
 	}
 
+	&__item {
+
+		@media (max-width: $tableWidth) {
+			&:last-child {
+				display: none;
+			}
+		}
+	}
 	&__container {
-		display: flex;
-		column-gap: 19px;
+		width: 55%;
+		display: grid;
+		grid-template-areas:
+				"photo name name"
+				"photo job job"
+				"photo star like"
+				"photo text text";
+		grid-template-columns: minmax(84px, 101px) 23% auto;
+		grid-column-gap: 20px;
+		grid-row-gap: 11px;
+
+		@media (max-width: $smDesktopWidth) {
+			width: 80%;
+		}
+
+		@media (max-width: $tableWidth) {
+			width: 100% !important;
+			grid-template-areas:
+							"photo name"
+							"photo job"
+							"photo star"
+							"like like"
+							"text text";
+			grid-template-columns: minmax(84px, 101px) auto;
+			grid-row-gap: 3px;
+
+		}
+	}
+
+	&__img {
+		grid-area: photo;
+		width: 100%;
+		max-width: 101px;
+
+		@media (max-width: $smPhoneWidth) {
+			max-width: 84px;
+		}
 	}
 
 	&__photo {
-		width: 100px;
+		grid-area: photo;
+		width: 100%;
+		//max-width: 110px;
+		height: 0;
+		padding-bottom: 100%;
+		position: relative;
+
+		& > img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			border-radius: 50%;
+			object-fit: cover;
+		}
 	}
 	&__content {
 		width: 44.6%;
@@ -22,10 +80,26 @@
 		flex-direction: column;
 		row-gap: 11px;
 	}
+
+	&__title {
+		grid-area: name;
+		margin-top: 10px;
+
+		@media (max-width: $tableWidth) {
+			margin-top: 6px;
+		}
+	}
 	&__title h4 {
 		font-weight: 500;
 		font-size: 18px;
 		color: $mainFontColor;
+
+		@media (max-width: $tableWidth) {
+			font-size: 16px;
+		}
+	}
+	&__job{
+		grid-area: job;
 	}
 	&__job p {
 		font-weight: 400;
@@ -33,10 +107,16 @@
 		color: $mainFontColor;
 	}
 	&__rating {
+		grid-area: like;
 		display: flex;
 		align-items: center;
+
+		@media (max-width: $tableWidth) {
+			margin-top: 19px;
+		}
 	}
 	&__rating-star {
+		grid-area: star;
 		margin-right: 50px;
 		white-space: nowrap;
 	}
@@ -46,25 +126,50 @@
 		}
 	}
 	&__rating-like {
-		margin-right: 5px;
+		height: 17px;
+		margin-right: 4px;
+		display: flex;
+		align-items: flex-start;
 	}
 	&__rating-text p {
 		font-weight: 400;
 		font-size: 14px;
 		line-height: 21px;
 		color: $mainLightFont;
+		white-space: nowrap;
 	}
 	&__review {
-		font-weight: 400;
-		font-size: 16px;
-		line-height: 24px;
-		color: $mainFontColor;
+		grid-area: text;
 		margin-top: 11px;
+		border-bottom: 1px solid $lineColor;
+		padding-bottom: 30px;
+
+		@media (max-width: $tableWidth) {
+			margin-top: 12px;
+			padding-bottom: 40px;
+		}
 	}
 	&__date {
 		font-weight: 400;
 		font-size: 14px;
+		//line-height: 21px;
 		color: $mainLightFont;
-		margin-top: 5px;
+		margin-top: 17px;
+
+		@media (max-width: $tableWidth) {
+			margin-top: 39px;
+		}
+	}
+}
+.review {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	color: $mainFontColor;
+
+	@media (max-width: $tableWidth) {
+		font-size: 14px;
+		line-height: 21px;
+
 	}
 }

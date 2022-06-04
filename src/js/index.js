@@ -2,12 +2,15 @@
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#import-js-files
 import jquery from 'jquery';
 import $ from 'jquery';
+// import ymaps from 'ymaps';
 
 $(document).ready(function () {
 
-	// $(document).on("click", function (e) {
-	// 	console.log(e)
-	// })
+	$(document).on("click", function (e) {
+		let el = e.target
+
+		console.log($(el).attr("class"));
+	});
 
 	//////////////////////////////////////////////
 	const dateArrays = {
@@ -59,7 +62,10 @@ $(document).ready(function () {
 		let todayWeekDay = weekDays[new Date().getDay()];
 		let getDay = new Date().getDate();
 
-		$(".entry__day").text(todayWeekDay + ", " + getDay + getMount);
+		$(".day").text(todayWeekDay + ", ");
+		$(".date").text(getDay + " ");
+		$(".month").text(getMount);
+
 
 		setDateArrays(year, month);
 	}
@@ -80,15 +86,75 @@ $(document).ready(function () {
 		event.stopPropagation();
 
 		$(".calendar-entry").toggleClass("active");
-	})
+	});
+
+	$(".entry__day").on("click", function (event) {
+		event.stopPropagation();
+
+		$(".calendar-entry").toggleClass("active");
+	});
 
 	$(".calendar-icon").on("click", function (event) {
 		event.stopPropagation();
 
 		$(".calendar-modal").toggleClass("active");
-	})
+	});
+
+	// $(document).on("click", function (event) {
+	// 	// event.stopPropagation();
+	// 	console.log($(".calendar-modal"))
+	// 	if (event.target !== $(".calendar-modal")) {
+	// 		$(".calendar-modal").removeClass("active");
+	// 	};
+	// });
+
+	/////////////////////////////////////////////////////
+
+	let scrollDocument = 0;
+
+	$(".header__button").on("click", function () {
+		$(".modal").css("display", "flex");
+
+		scrollDocument = $(document).scrollTop();
+
+		$("#wrapper").css({"position": "fixed", "top": -scrollDocument});
+		$(document).scrollTop(scrollDocument);
+
+	});
+
+	$(".modal__close-icon").on("click", function () {
+		$(".modal").css("display", "none");
+
+		$("#wrapper").css({"position": "relative", "top": 0});
+
+		$(document).scrollTop(scrollDocument);
+
+
+
+	});
+	$(".modal__scroll").on("click", function (e) {
+
+		if ($(e.target).hasClass("modal__scroll")) {
+
+			$(".modal").css("display", "none");
+
+			$("#wrapper").css({"position": "relative", "top": 0});
+			$(document).scrollTop(scrollDocument);
+		}
+	});
+
 	//////////////////////////////////////////
 	let blockHint = ['<div class="hint">', '<div class="hint__content">', '<ul class="hint__list">', '<li class="hint__item">','<div class="hint__block">', '<div class="hint__numb">','1' ,'</div>' , '<div class="hint__title">', ,'Где встречаемся?' ,'</div>', '<div class="hint__title">', ,'Москва' ,'</div>','</div>','</li>',, '<li class="hint__item">','<div class="hint__block">', '<div class="hint__numb">','1' ,'</div>' , '<div class="hint__title">', ,'Где встречаемся?' ,'</div>', '<div class="hint__title">', ,'Москва' ,'</div>','</div>','</li>', '<li class="hint__item">','<div class="hint__block">', '<div class="hint__numb">','1' ,'</div>' , '<div class="hint__title">', ,'Где встречаемся?' ,'</div>', '<div class="hint__title">', ,'Москва' ,'</div>','</div>','</li>','</ul>','</div>','</div>' ]
+
+	// ymaps
+	// .load()
+	// .then(maps => {
+	// 	const map = new maps.Map('map', {
+	// 	center: [55.758792301352464, 37.61949521438022],
+	// 	zoom: 17
+	// 	});
+	// })
+	// .catch(error => console.log('Failed to load Yandex Maps', error));
 
 	ymaps.ready(function () {
 		let myMap = new ymaps.Map("map", {
@@ -116,19 +182,6 @@ $(document).ready(function () {
 		// placemark.balloon.open();
 
 	});
-
-/////////////////////////////////////////////////////
-
-	$(".modal__close-icon").on("click", function () {
-		$(".modal").css("display", "none");
-	});
-	$(".modal__bg").on("click", function () {
-		$(".modal").css("display", "none");
-	});
-	$(".header__button").on("click", function () {
-		$(".modal").css("display", "flex");
-	});
-
 
 });
 

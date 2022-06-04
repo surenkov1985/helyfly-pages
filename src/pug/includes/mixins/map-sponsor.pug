@@ -1,0 +1,11 @@
+block variable
+
+mixin sponsor(item)
+	.false__item
+		.map__photo
+			div(class= item.imgClass).map__info
+				| !{item.info}
+		.map__content
+			.map__title= item.title
+			.map__text= item.text
+			button.map__more.more= item.more
