@@ -10,13 +10,17 @@ mixin reviewCard(item)
 			.cards__title
 				h4= item
 			.cards__job
-				p= reviewCards[item].jobTitle
-			.cards__rating-star !{star}!{star}!{star}!{star}!{star}
-			.cards__rating
+				p.job= reviewCards[item].jobTitle
+			.cards__rating-star
+				.stars !{star}!{star}!{star}!{star}!{star}
+			.cards__rating.like
 				.cards__rating-like
 					<svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6.5L6.6 12.5L16 1" stroke="#6AAD4A" stroke-width="2.5"/></svg>
-				.cards__rating-text
-					p= reviewCards[item].rating
+				.cards__rating-likeText= reviewCards[item].ratingLike
+			.cards__rating-false
+				.cards__rating-dislike
+					<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 500 500" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"><![CDATA[.str0 {stroke:#FF3300;stroke-width:40;stroke-linecap:round}.fil0 {fill:none}]]></style></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"/><path class="fil0 str0" d="M425 75l-350 350m350 0l-350 -350"/></g></svg>
+				.cards__rating-dislikeText= reviewCards[item].ratingDislike
 			.cards__review
 				p.review= reviewCards[item].review
 				p.cards__date= reviewCards[item].date

@@ -1,8 +1,8 @@
-block variables
+
 
 include ../mixins/review-card
 
-section.reviews
+section.main__reviews.reviews
 	.reviews__container.container
 		.reviews__title
 			h3 Отзывы:
@@ -17,4 +17,13 @@ section.reviews
 					| !{arrow}
 				button.more__text-false.more
 					p Показать Все (134)
+					| !{arrow}
+			ul.cards__list-false
+			.reviews__hide.hide
+				button.hide__text.more
+					| !{arrow}
+					p Скрыть
+					| !{arrow}
+				button.hide__text-false.more
+					p Скрыть
 					| !{arrow}

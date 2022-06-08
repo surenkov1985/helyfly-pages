@@ -8,46 +8,28 @@
 	display: none;
 	justify-content: center;
 	align-items: center;
-	//overflow: auto;
-
-
 
 	&__scroll {
 		width: 100%;
 		height: 100%;
 		position: absolute;
-		top:0;
+		top: 0;
 		left: 0;
 		display: flex;
 		justify-content: center;
-		overflow: auto;z-index: 21;
-		//z-index: 21;
-
-		//&::-webkit-scrollbar {
-		//	z-index: 40;
-		//	width: 10px;
-		//	background: rgba($commitNumbColor, 0.3);
-		//	border-radius: 5px;
-		//}
-		//
-		//&::-webkit-scrollbar-thumb {
-		//	background: rgba($activeColor, 0.7);
-		//	border-radius: 3px;
-		//	cursor: pointer;z-index: 41;
-		//}
-
+		overflow: auto;
+		z-index: 21;
 	}
-
 
 	&__block {
 		height: max-content;
 		max-width: 620px;
 		margin-right: 12px;
-		//overflow: auto;
 		position: relative;
 		border-radius: 6px;
 		background: none;
 		padding-left: 3px;
+
 		&.container {
 			max-width: 620px!important;
 		}
@@ -85,7 +67,6 @@
 		justify-content: center;
 		row-gap: 30px;
 		position: relative;
-		//top: 25%;
 		margin: 50px 0;
 		top: 0%;
 		padding: 60px 97px;
@@ -93,7 +74,6 @@
 		background: $defaultColor;
 		border-radius: 6px;
 		z-index: 22;
-		//overflow-y: auto;
 
 		@media (max-width: $phoneWidth) {
 			padding: 50px 10px 36px;
@@ -106,18 +86,15 @@
 		height: 100%;
 		position: fixed;
 		background: rgba($borderButtonArray, 0.5);
-		//z-index: 39;
 	}
 
 	&__form {
 		display: flex;
 		flex-direction: column;
-		//align-items: center;
 		row-gap: 11px;
 
 		& > input {
 			width: 100%;
-			//max-width: 420px;
 			max-height: 44px;
 			border: 1px solid $lineColor;
 			border-radius: 3px;
@@ -133,9 +110,11 @@
 			&:active::-moz-placeholder {
 				color: transparent;
 			}
+
 			&:focus::-moz-placeholder {
 				color: transparent;
 			}
+
 			&:focus::-webkit-input-placeholder {
 				color: transparent;
 			}
@@ -158,15 +137,9 @@
 				}
 			}
 		}
-
-		@media (max-width: $tableWidth) {
-			//row-gap: 6px;
-		}
-
-
 	}
 
-	&__title h3{
+	&__title h3 {
 		text-align: center;
 		font-weight: 600;
 		font-size: 22px;
@@ -175,7 +148,6 @@
 		@media (max-width: $phoneWidth) {
 			font-size: 18px;
 		}
-
 	}
 
 	&__button {
@@ -186,7 +158,6 @@
 		font-size: 16px;
 		color: $defaultColor;
 		background: $activeColor;
-		//border: 2px solid $activeColor;
 		cursor: pointer;
 		padding: 25px 40px;
 		border-radius: 3px;
@@ -195,7 +166,6 @@
 		margin-top: 12px;
 
 		&:hover {
-			//color: $defaultColor;
 			background: rgba($activeColor, 0.5);
 
 			&:disabled {
@@ -205,7 +175,6 @@
 
 		&:disabled {
 			filter: grayscale(1);
-			//background: rgba($activeColor, 0.4);
 			cursor: default;
 		}
 
@@ -215,6 +184,7 @@
 			padding: 15px 50px;
 		}
 	}
+
 	&__close-icon {
 		width: 60px;
 		height: 60px;
@@ -225,9 +195,10 @@
 		right: 0;
 		top: 0;
 		cursor: pointer;
+
 		@media (max-width: $tableWidth) {
 			width: 50px;
-			height:50px;
+			height: 50px;
 
 			& > svg {
 				width: 17px;
@@ -236,13 +207,11 @@
 		}
 	}
 }
+
 .form {
 
 	&>input {
 		line-height: 21px;
-		//padding: 13px 20px;
-
-
 	}
 
 	&__text_black {
@@ -260,6 +229,7 @@
 		width: 100%;
 		border: 1px solid $lineColor;
 		border-radius: 3px;
+
 		&>input {
 			line-height: 18px;
 			padding: 12px 20px;
@@ -279,23 +249,23 @@
 			}
 		}
 
-
-
 		&>input:focus::-moz-placeholder {
 			color: transparent;
 		}
+
 		&>input:focus::-webkit-input-placeholder {
 			color: transparent;
 		}
 	}
+
 	&__card-number {
 		width: 100%;
 		border-bottom: 1px solid $lineColor;
 		padding: 10px 20px;
 		font-weight: 400;
 		font-size: 16px;
-
 	}
+
 	&__card-date {
 		width: 50%;
 		border-right: 1px solid $lineColor;
@@ -303,14 +273,13 @@
 		font-weight: 400;
 		font-size: 16px;
 
-
-
 		@media (max-width: $smTableWidth) {
 			width: 100%;
 			border-bottom: 1px solid $lineColor;
 			border-right: none;
 		}
 	}
+
 	&__card-code {
 		width: 50%;
 		padding: 10px 20px;
@@ -330,28 +299,20 @@
 
 		&>input {
 			width: 100%;
-			//max-width: 420px;
 			max-height: 44px;
 			border: 1px solid $lineColor;
 			border-radius: 3px;
 			padding: 10px 16px;
 			font-weight: 400;
 			font-size: 16px;
-
-
-
 		}
 
 		& > input::-webkit-calendar-picker-indicator {
-			opacity:0;
-		}
-
-		&__card-data {
-
-
+			opacity: 0;
 		}
 	}
 }
+
 .calendar-icon {
 	position: absolute;
 	right: 15px;
@@ -395,6 +356,7 @@
 			border-color: $activeColor;
 		}
 	}
+
 	&__false-box {
 		position: absolute;
 		margin-top: 1px;
@@ -407,7 +369,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
 	}
 }
 

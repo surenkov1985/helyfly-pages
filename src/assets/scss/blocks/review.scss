@@ -6,25 +6,24 @@
 	&__container {
 		display: flex;
 		flex-direction: column;
-		//row-gap: 50px;
 		padding: 130px 2px 30px;
 
-		@media (max-width: $tableWidth) {
+		@media (max-width: 860px) {
 			padding-top: 40px;
-
 		}
 	}
-	 &__title h3 {
-		 font-weight: 500;
-		 font-size: 20px;
-		 color: $mainFontColor;
 
-		 @media (max-width: $tableWidth) {
-			 text-align: center;
-			 font-weight: 400;
-			 font-size: 28px;
-		 }
-	 }
+	&__title h3 {
+		font-weight: 500;
+		font-size: 20px;
+		color: $mainFontColor;
+
+		@media (max-width: $tableWidth) {
+			text-align: center;
+			font-weight: 400;
+			font-size: 28px;
+		}
+	}
 
 	&__cards {
 		margin-top: 50px;
@@ -38,7 +37,11 @@
 		margin-top: 30px;
 	}
 
+	&__hide {
+
+	}
 }
+
 .more {
 	display: flex;
 	justify-content: center;
@@ -85,6 +88,59 @@
 
 		& > svg {
 			transform: rotate(-90deg);
+		}
+	}
+}
+
+.hide {
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	&__text {
+		position: relative;
+		display: flex;
+		align-items: center;
+		column-gap: 10px;
+		padding: 10px 20px;
+		cursor: pointer;
+
+		@media (max-width: $tableWidth) {
+			display: none;
+		}
+
+		& > p {
+			font-family: $mainFont;
+			font-weight: 500;
+			font-size: 17px;
+			color: $showColor;
+		}
+		& > svg {
+			transform: rotate(-180deg);
+		}
+	}
+
+	&__text-false {
+		position: relative;
+		display: none;
+		align-items: center;
+		column-gap: 10px;
+		padding: 10px 20px;
+		cursor: pointer;
+
+		@media (max-width: $tableWidth) {
+			display: flex;
+		}
+
+		& > p {
+			font-family: $mainFont;
+			font-weight: 500;
+			font-size: 17px;
+			color: $showColor;
+		}
+
+		& > svg {
+			transform: rotate(-180deg);
 		}
 	}
 }

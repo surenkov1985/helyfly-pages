@@ -1,0 +1,37 @@
+include ../vars/variables
+
+mixin socialItem(item)
+	li(id= item).social__item
+		a(href="#" target="_blank").social__link !{socialIcon[item].img}
+
+mixin langItem()
+	p RU
+	| !{arrow}
+
+
+footer#foot.foot
+	.foot__content.container
+		.foot__logo.logo
+			a(href="/" target="_self").logo__link helyfly
+		.foot__social
+			.foot__social-link.social
+				ul.social__list
+					for index, value in socialIcon
+						+socialItem(value)
+			button.foot__lang
+				+langItem()
+	.foot__copyrait.copyrait
+		.copyrait__content.container
+			.copyrait__text
+				p Тех. поддержка: 8(800)700-00-00
+				p © 2018 HELYFLY. All Rights Reserved.
+			.copyrait__payment
+				.copyrait__cards
+					.master-card
+						img(src="assets/img/master-card.png" alt="master-card")
+					.visa
+						img(src="assets/img/visa.png" alt="visa-icon")
+					.pay-pal
+						img(src="assets/img/pay-pal.png" alt="paypal-icon")
+				button.copyrait__lang
+					+langItem()

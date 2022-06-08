@@ -1,0 +1,19 @@
+
+include ../vars/variables
+
+section.main__foto-collection.foto-collection
+	.foto-collection__container.container
+		.foto-collection__fotos.fotos
+			.fotos__title
+				h3 Фотографии пакета
+			.fotos__collection
+				ul.fotos__list
+					for item in fotoCollection
+						li.fotos__item
+							a(href= item.link)
+								img(src= item.photo alt= item.name)
+			.fotos__show-button
+				button.fotos__button.more
+					| !{arrow}
+					p Показать все фото
+					| !{arrow}

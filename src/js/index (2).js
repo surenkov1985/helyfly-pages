@@ -216,10 +216,20 @@ $(document).ready(function () {
 		let data = DATA;
 		let commits = data.Users;
 
+		const starImg = '<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.2168 5.79584L12.2598 5.32991C11.9473 5.30167 11.6774 5.10401 11.5496 4.80751L9.77417 0.529461C9.4901 -0.176487 8.48164 -0.176487 8.19757 0.529461L6.43632 4.80751C6.3227 5.10401 6.03862 5.30167 5.72615 5.32991L0.769095 5.79584C0.0305089 5.86643 -0.267766 6.78417 0.286173 7.27833L4.02172 10.5398C4.26318 10.7516 4.3626 11.0622 4.29158 11.3728L3.1695 15.9474C2.99906 16.6674 3.78025 17.2604 4.43362 16.8792L8.56686 14.4649C8.83673 14.3096 9.16341 14.3096 9.43328 14.4649L13.5665 16.8792C14.2199 17.2604 15.0011 16.6816 14.8306 15.9474L13.7228 11.3728C13.6517 11.0622 13.7512 10.7516 13.9926 10.5398L17.7282 7.27833C18.2679 6.78417 17.9554 5.86643 17.2168 5.79584Z" fill="#FC9B09"/></svg>';
+
+		const like = '<svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6.5L6.6 12.5L16 1" stroke="#6AAD4A" stroke-width="2.5"/></svg>';
+
+		const dislike = '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 500 500" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"><![CDATA[.str0 {stroke:#FF3300;stroke-width:40;stroke-linecap:round}.fil0 {fill:none}]]></style></defs><g id="Layer_x0020_1"><metadata id="CorelCorpID_0Corel-Layer"/><path class="fil0 str0" d="M425 75l-350 350m350 0l-350 -350"/></g></svg>';
+
+		const likeText = "Супер! Я бы заказала съемку снова!";
+
+		const dislikeText = "Не понравилось! Никогда не вернусь";
+
 		const blocksCommit = $(".cards__item")[0];
 		const blockList = $(".cards__list-false");
 
-		$(".more__text, .more__text-false").find("p").html(`Показать Все (${commits.length})`);
+		$(".more__text, .more__text-false").children("p").html(`Показать Все (${commits.length})`);
 
 		for (let value of commits) {
 
@@ -229,27 +239,33 @@ $(document).ready(function () {
 			$(blockCommit).find('img').attr("src", commitsObj.photo).attr("alt", commitsObj.name);
 			$(blockCommit).find('h4').html(commitsObj.name);
 			$(blockCommit).find(".job").html(commitsObj.job);
+			$(blockCommit).find(".stars").html(function(){
 
-			$(blockCommit).find(".stars").children().each(function(index) {
-				if (index >= commitsObj.rating) {
-					$(this).addClass("gray");
-				};
+					$(this).html('');
+
+					for(let i = 0; i < commitsObj.rating; i++){
+						$(this).append(starImg);
+					}
 			});
+			$(blockCommit).find(".cards__rating-like").html(function () {
 
-			$(blockCommit).find(".cards__rating").each(function () {
+					if (commitsObj.recommended){
 
-				if (commitsObj.recommended) {
+						return like;
 
-					$(blockCommit).find(".cards__rating").addClass("like");
-					$(blockCommit).find(".cards__rating-false").removeClass("like");
+					} else {
 
-				} else {
-
-					$(blockCommit).find(".cards__rating").removeClass("like");
-					$(blockCommit).find(".cards__rating-false").addClass("like");
-				}
+						return dislike;
+					};
 			});
+			$(blockCommit).find(".cards__rating-text").html(function () {
 
+					if (commitsObj.recommended) {
+						return likeText;
+					} else {
+						return dislikeText;
+					}
+			});
 			$(blockCommit).find(".review").html(commitsObj.commit);
 			$(blockCommit).find(".cards__date").html(commitsObj.date);
 
@@ -339,7 +355,7 @@ const DATA = {
 			userData: {
 				photo: "assets/img/review-photo2.png",
 				name: "Сергей В.",
-				job: "Юрист",
+				// job: "Юрист",
 				rating: 5,
 				recommended: true,
 				commit: "Все понравилось! Все профессионально организовано. Пилот очень опытный, плавно управлял вертолетом. Хост персонал сработал четко, подарил хорошие эмоции как и полет! Рекомендовано",

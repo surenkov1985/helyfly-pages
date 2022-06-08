@@ -6,9 +6,21 @@
 		row-gap: 30px;
 	}
 
+	&__list-false {
+		display: none;
+		flex-direction: column;
+		row-gap: 30px;
+		margin-top: 30px;
+
+		&.active {
+			display: flex;
+		}
+	}
+
 	&__item {
 
 		@media (max-width: $tableWidth) {
+
 			&:last-child {
 				display: none;
 			}
@@ -40,7 +52,6 @@
 							"text text";
 			grid-template-columns: minmax(84px, 101px) auto;
 			grid-row-gap: 3px;
-
 		}
 	}
 
@@ -57,7 +68,6 @@
 	&__photo {
 		grid-area: photo;
 		width: 100%;
-		//max-width: 110px;
 		height: 0;
 		padding-bottom: 100%;
 		position: relative;
@@ -72,6 +82,7 @@
 			object-fit: cover;
 		}
 	}
+
 	&__content {
 		width: 44.6%;
 		border-bottom: 1px solid $lineColor;
@@ -89,6 +100,7 @@
 			margin-top: 6px;
 		}
 	}
+
 	&__title h4 {
 		font-weight: 500;
 		font-size: 18px;
@@ -98,46 +110,92 @@
 			font-size: 16px;
 		}
 	}
+
 	&__job{
 		grid-area: job;
 	}
-	&__job p {
+
+	&__job p{
 		font-weight: 400;
 		font-size: 14px;
 		color: $mainFontColor;
 	}
 	&__rating {
 		grid-area: like;
-		display: flex;
+		display: none;
 		align-items: center;
 
 		@media (max-width: $tableWidth) {
 			margin-top: 19px;
 		}
+
+		&.like {
+			display: flex;
+		}
 	}
-	&__rating-star {
+
+	&__rating-false {
+		grid-area: like;
+		display: none;
+		align-items: center;
+
+		@media (max-width: $tableWidth) {
+			margin-top: 19px;
+		}
+
+		&.like {
+			display: flex;
+		}
+	}
+
+	& .stars {
 		grid-area: star;
 		margin-right: 50px;
 		white-space: nowrap;
 	}
-	&__rating-star > svg {
+
+	& .stars > svg {
+
 		&:not(:last-child) {
 			margin-right: 7px;
 		}
+
+		&.gray {
+			filter: grayscale(80%);
+			opacity: 0.2;
+		}
 	}
+
 	&__rating-like {
 		height: 17px;
 		margin-right: 4px;
 		display: flex;
 		align-items: flex-start;
 	}
-	&__rating-text p {
+
+	&__rating-dislike {
+		height: 17px;
+		margin-right: 4px;
+		display: flex;
+		align-items: flex-start;
+	}
+
+	&__rating-likeText {
 		font-weight: 400;
 		font-size: 14px;
 		line-height: 21px;
 		color: $mainLightFont;
 		white-space: nowrap;
 	}
+
+	&__rating-dislikeText {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 21px;
+		color: $mainLightFont;
+		white-space: nowrap;
+	}
+
 	&__review {
 		grid-area: text;
 		margin-top: 11px;
@@ -149,10 +207,10 @@
 			padding-bottom: 40px;
 		}
 	}
+
 	&__date {
 		font-weight: 400;
 		font-size: 14px;
-		//line-height: 21px;
 		color: $mainLightFont;
 		margin-top: 17px;
 
@@ -161,6 +219,7 @@
 		}
 	}
 }
+
 .review {
 	font-weight: 400;
 	font-size: 16px;

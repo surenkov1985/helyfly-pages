@@ -8,9 +8,11 @@
 
 		@media (max-width: $phoneWidth) {
 			row-gap: 3px;
+
 			& .watch {
 				margin-top: 19px;
 				column-gap: 10px;
+
 				& > .desc__icon {
 					width: 32px;
 
@@ -61,8 +63,8 @@
 }
 
 .watch {
-	column-gap: 10px;
+	column-gap: 8px;
 	& > .desc__icon {
-		width: 40px;
+		//width: 40px;
 	}
 }

@@ -1,0 +1,133 @@
+.main__foto-collection {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.foto-collection {
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		row-gap: 25px;
+		padding: 40px 3px 20px;
+		border-bottom: 1px solid $lineColor;
+
+		@media (max-width: $tableWidth) {
+			border: none;
+			padding-bottom: 0;
+		}
+	}
+}
+
+.fotos {
+	display: flex;
+	flex-direction: column;
+	row-gap: 34px;
+
+	@media (max-width: $phoneWidth) {
+		padding: 35px 0 0 0;
+	}
+
+	&__title h3 {
+		font-weight: 500;
+		font-size: 20px;
+		color: $mainFontColor;
+
+		@media (max-width: $tableWidth) {
+			font-weight: 400;
+			font-size: 28px;
+			text-align: center;
+			width: 98%;
+		}
+	}
+
+	&__collection {
+
+		@media (max-width: $phoneWidth) {
+			overflow-x: scroll;
+			padding-bottom: 8px;
+
+			&::-webkit-scrollbar {
+				height: 5px;
+				background: rgba($commitNumbColor, 0.3);
+				border-radius: 3px;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background: rgba($activeColor, 0.7);
+				border-radius: 3px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+		grid-column-gap: 13px;
+
+		@media (max-width: $phoneWidth) {
+			display: flex;
+			column-gap: 10px;
+			width: max-content;
+		}
+	}
+	&__item {
+		cursor: pointer;
+		outline: 1px solid rgba(#fff, 0.8);
+		outline-offset: -10px;
+		padding: 10px 0;
+		margin-top: -10px;
+		display: flex;
+
+		@media (max-width: $phoneWidth) {
+			width: 90%;
+		}
+
+		@media (max-width: 350px) {
+			max-width: 275px;
+		}
+
+		& a {
+			width: 100%;
+
+			&>img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 4px;
+				transition: all $transitionTime;
+
+				&:hover {
+					opacity: 0.6;
+				}
+			}
+		}
+
+
+	}
+	&__show-button {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		@media (max-width: $tableWidth) {
+			display: none;
+		}
+	}
+	&__button {
+		padding: 5px 10px;
+		font-weight: 500;
+		font-family: $mainFont;
+		font-size: 17px;
+		color: $showColor;
+		display: flex;
+		align-items: center;
+		-webkit-column-gap: 10px;
+		-moz-column-gap: 10px;
+		column-gap: 10px;
+		cursor: pointer;
+	}
+}

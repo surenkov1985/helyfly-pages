@@ -4,7 +4,6 @@
 
 	&__container {
 		display: flex;
-
 		padding: 37px 3px 41px;
 		border-bottom: 1px solid $lineColor;
 		justify-content: space-between;
@@ -13,13 +12,13 @@
 			flex-direction: column-reverse;
 			padding-top: 12px;
 			padding-bottom: 10px;
-
 		}
+
 		@media (max-width: $phoneWidth) {
 			border: none;
 		}
-
 	}
+
 	&__description {
 		width: 51%;
 		display: flex;
@@ -41,6 +40,7 @@
 		font-size: 18px;
 		color: $mainFontColor;
 	}
+
 	& span {
 		font-weight: 400;
 		font-size: 16px;
@@ -48,9 +48,9 @@
 		color: $mainFontColor;
 	}
 	&__about {
-		//display: flex;
-		//flex-direction: column;
-		//row-gap: 13px;
+		display: flex;
+		flex-direction: column;
+		row-gap: 13px;
 	}
 
 	&__about-text {
@@ -62,14 +62,39 @@
 
 	}
 	&__link-more {
-
-
-		display: inline-block;
+		display: none;
 
 		@media (max-width: $phoneWidth) {
 			margin-top:10px;
 		}
 
+		&.active {
+			display: inline-block;
+		}
+	}
+
+	&__about-close {
+		display: none;
+
+		@media (max-width: $phoneWidth) {
+			margin-top:10px;
+		}
+
+		&.active {
+			display: inline-block;
+		}
+	}
+
+	&__represent-close {
+		display: none;
+
+		@media (max-width: $phoneWidth) {
+			margin-top:10px;
+		}
+
+		&.active {
+			display: inline-block;
+		}
 	}
 
 	&__button {
@@ -90,6 +115,28 @@
 		}
 	}
 
+	&__close-button {
+		padding: 10px;
+		padding-left: 0;
+		position: relative;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		cursor: pointer;
+		column-gap: 10px;
+
+		& > p {
+			font-family: $mainFont;
+			font-weight: 500;
+			font-size: 16px;
+			color: $showColor;
+		}
+
+		& > svg {
+			transform-origin: center;
+			transform: rotate(180deg);
+		}
+	}
 
 	&__represent {
 		width: 95%;
@@ -107,6 +154,22 @@
 		}
 	}
 
+	&__about-details {
+		display: none;
+
+		&.active {
+			display: inline;
+		}
+	}
+
+	&__represent-details {
+		display: none;
+
+		&.active {
+			display: inline;
+		}
+	}
+
 
 	&__presents {
 		width: 46%;
@@ -121,7 +184,6 @@
 			padding: 27px 38px 15px 23px;
 		}
 	}
-
 }
 
 .photograph {
@@ -136,10 +198,6 @@
 
 	@media (max-width: $smallWidth) {
 		width: 70%;
-	}
-
-	@media (max-width: $tableWidth) {
-		//max-width: 49%;
 	}
 
 	@media (max-width: 450px) {
@@ -185,18 +243,22 @@
 			font-size: 14px;
 		}
 	}
+
 	&__button {
 		margin-top: 5px;
 		padding: 5px 10px;
-		font-family: $mainFont;
-		font-weight: 500;
-		font-size: 14px;
-		line-height: 21px;
-		color: $showColor;
 		cursor: pointer;
 		position: relative;
 		display: flex;
 		align-items: center;
+
+		& a {
+			font-family: $mainFont;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 21px;
+			color: $showColor;
+		}
 	}
 
 	&__like {
@@ -208,6 +270,5 @@
 			left: 85%;
 			top: -5%;
 		}
-
 	}
 }
