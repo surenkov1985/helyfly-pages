@@ -23,3 +23,11 @@ import './assets/scss/main.scss'
 // const app = new Vue({
 //   el: '#app'
 // })
+
+// fetch('./comments.json')
+// .then((response) => {
+//     return response.json();
+// })
+// .then((data) => {   
+//     console.log(data);
+// });
