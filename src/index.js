@@ -1,6 +1,11 @@
 // JS
 // import ymaps from 'ymaps';
-import './js/'
+import './js/comments';
+import './js/calendar';
+import './js/modal';
+import './js/youtube';
+import './js/sponsor-deteails';
+import './js/yandex-map';
 
 // SCSS
 import './assets/scss/main.scss'
