@@ -108,15 +108,48 @@
 
 	}
 	&__show-button {
-		display: flex;
+		display: none;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+
+		&.active {
+			display: flex;
+
+			@media (max-width: $tableWidth) {
+				display: none;
+			}
+		}
 
 		@media (max-width: $tableWidth) {
 			display: none;
 		}
 	}
+
+	&__hide-button {
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		&.active {
+			display: flex;
+
+			@media (max-width: $tableWidth) {
+				display: none;
+			}
+		}
+
+		& .fotos__button > svg {
+			transform: rotate(180deg);
+		}
+
+		@media (max-width: $tableWidth) {
+			display: none;
+		}
+	}
+
+
 	&__button {
 		padding: 5px 10px;
 		font-weight: 500;

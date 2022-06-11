@@ -6,6 +6,7 @@ import './js/modal';
 import './js/youtube';
 import './js/sponsor-deteails';
 import './js/yandex-map';
+import './js/photos';
 
 // SCSS
 import './assets/scss/main.scss'

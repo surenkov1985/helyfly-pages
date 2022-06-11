@@ -1,6 +1,6 @@
 include ../vars/variables
 
-#modal.modal
+#modal.modal.active
 	.modal__bg
 	.modal__scroll
 		.modal__block.container
@@ -20,7 +20,7 @@ include ../vars/variables
 					.form__text
 						span.form__text_black Email
 						span.form__text_red *
-					input(type="email" name="email" required placeholder="Электронная почта").input
+					input(type="email" name="email" required placeholder="Электронная почта").input.email
 					.form__text
 						span.form__text_black Имя
 						span.form__text_red *
@@ -32,7 +32,7 @@ include ../vars/variables
 					.form__text
 						span.form__text_black Телефон
 						span.form__text_red *
-					input(type="tel" required placeholder="+7 (987) 654-32-10").input
+					input(type="tel" required placeholder="+7 (987) 654-32-10" maxlength=18).phone.input
 					.form__text
 						span.form__text_black Данные карты
 						span.form__text_red *

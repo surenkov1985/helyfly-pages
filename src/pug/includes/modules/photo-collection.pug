@@ -12,8 +12,13 @@ section.main__foto-collection.foto-collection
 						li.fotos__item
 							a(href= item.link)
 								img(src= item.photo alt= item.name)
-			.fotos__show-button
+			.fotos__show-button.active
 				button.fotos__button.more
 					| !{arrow}
 					p Показать все фото
+					| !{arrow}
+			.fotos__hide-button
+				button.fotos__button.more
+					| !{arrow}
+					p Скрыть
 					| !{arrow}
