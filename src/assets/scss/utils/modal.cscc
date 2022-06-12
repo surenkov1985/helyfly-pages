@@ -33,9 +33,17 @@
 		border-radius: 6px;
 		background: none;
 		padding-left: 3px;
+		//display: none;
+
+
 
 		&.container {
 			max-width: 620px!important;
+			display: none;
+
+			&.active {
+				display: flex;
+			}
 		}
 
 		@media (max-width: $tableWidth) {
@@ -63,25 +71,120 @@
 				background: rgba($activeColor, 0.7);
 			}
 		}
+
+		& .modal__container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			row-gap: 30px;
+			position: relative;
+			margin: 50px 0;
+			top: 0%;
+			padding: 60px 97px;
+			max-width: 615px;
+			background: $defaultColor;
+			border-radius: 6px;
+			z-index: 22;
+
+			@media (max-width: $phoneWidth) {
+				padding: 50px 10px 36px;
+				row-gap: 15px;
+			}
+		}
 	}
 
-	&__container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		row-gap: 30px;
+	&__block-alert {
+		height: max-content;
+		max-width: 620px;
+		margin-right: 12px;
+		margin: auto;
 		position: relative;
-		margin: 50px 0;
-		top: 0%;
-		padding: 60px 97px;
-		max-width: 615px;
-		background: $defaultColor;
 		border-radius: 6px;
-		z-index: 22;
+		background: none;
+		padding-left: 3px;
+
+		&.container {
+			max-width: 620px!important;
+			display: none;
+			align-items: center;
+			justify-content: center;
+
+			&.active {
+				display: flex;
+			}
+		}
+
+		@media (max-width: $tableWidth) {
+			//margin: 0;
+		}
+
+		& .modal__container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			row-gap: 30px;
+			position: relative;
+			margin: 50px 0;
+			top: 0%;
+			padding: 60px 97px;
+			max-width: 615px;
+			background: $defaultColor;
+			border-radius: 6px;
+			z-index: 22;
+
+			@media (max-width: $phoneWidth) {
+				padding: 30px;
+				//row-gap: 15px;
+			}
+		}
+	}
+
+	&__img {
+		width: 50%;
+
+		& > svg {
+			width: 100%;
+			height: 100%;
+		}
 
 		@media (max-width: $phoneWidth) {
-			padding: 50px 10px 36px;
-			row-gap: 15px;
+			width: 40%;
+		}
+	}
+
+	&__title-alert {
+		font-family: $mainFont;
+		color: $mainFontColor;
+		font-size: 20px;
+		font-weight: 500;
+		text-align: center;
+		//white-space: nowrap;
+
+		@media (max-width: $phoneWidth) {
+			font-size: 16px;
+		}
+	}
+
+	&__button-alert {
+		color: $defaultColor;
+		font-size: 18px;
+		font-weight: 900;
+		border: 2px solid $activeColor;
+		background: $activeColor;
+		border-radius: 5px;
+		cursor: pointer;
+		min-height: 60px;
+		min-width: 100px;
+		//padding: 12px 30px;
+		transition: all $transitionTime;
+
+		&:hover {
+			opacity: 0.8;
+		}
+		@media (max-width: $phoneWidth) {
+			max-height: 50px;
+			font-size: 16px;
 		}
 	}
 
@@ -387,7 +490,7 @@
 .calendar-modal {
 	position: absolute;
 	top: 120%;
-	right: 0;
+	right: 15px;
 	display: none;
 
 	&.active {
