@@ -16,6 +16,7 @@
 @import "utils/modal.cscc";
 @import "blocks/map";
 @import "blocks/section-foto-collection";
+@import "utils/ie11styles";
 
 * {
 	font-family: $mainFont;
@@ -26,10 +27,6 @@ body {
 	min-width: 320px;
 	height: 100%;
 	min-height: 100vh;
-	//display: flex;
-	//flex-direction: column;
-	//justify-content: center;
-	//align-items: center;
 	font-family: $mainFont;
 	position: relative;
 }
@@ -71,7 +68,7 @@ body {
 		}
 	}
 
-	&:hover > p{
+	&:hover > span{
 		color: $showColor;
 		text-decoration: underline;
 	}
@@ -114,4 +111,3 @@ main {
 		height: 20px;
 	}
 }
-

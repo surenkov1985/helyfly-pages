@@ -56,7 +56,8 @@ $(document).ready(function () {
 		if (day < 10) day = "0" + day;
 		if (month < 10) month = "0" + month;
 
-		$("#date").val(year + "-" + month + "-" + day);
+		$("#date").prop("value", day + "." + month + "." + year);
+		$("#date").focus();
 	};
 
 	function setEntryDate(month, day) {
@@ -129,7 +130,7 @@ $(document).ready(function () {
 			let arr = obj[key];
 			arr.length = 0;
 			obj[key] = arr;
-		}
+		};
 	};
 
 	getDatePicker(year, month);
@@ -164,7 +165,7 @@ $(document).ready(function () {
 			if (month > 11) {
 
 				month = 0;
-				year++
+				year++;
 			};
 
 			removeArrInObj(dateArrays);

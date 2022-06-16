@@ -13,16 +13,14 @@ function photosConstruct(arr) {
 
 	for (let i = 0; i < arr.length; i++) {
 
-		// let obj = arr.pop()
 		let newPhoto = $(photoItem).clone();
 
 		$(newPhoto).find("a").attr("href", arr[i].link);
 		$(newPhoto).find('img').attr("src", arr[i].photo).attr("alt", arr[i].name);
 
 		$(photosList).append(newPhoto);
-	}
-
-}
+	};
+};
 
 $(document).ready(function () {
 
@@ -35,17 +33,18 @@ $(document).ready(function () {
 
 			fetch(URL).then(function(response) {
 
-					return response.json()
+					return response.json();
+
 				}).then(function (data) {
 
 					photosConstruct(data);
-			})
+			});
 
 		} else {
 
 			$(".fotos__item").css("display", "flex");
 
-		}
+		};
 
 		$(".fotos__show-button").removeClass("active");
 		$(".fotos__hide-button").addClass("active");
@@ -58,10 +57,11 @@ $(document).ready(function () {
 			if (index < photosNumb) {
 
 				$(this).css("display", "flex");
+
 			} else {
 
 				$(this).css("display", "none");
-			}
+			};
 
 		});
 
@@ -72,7 +72,7 @@ $(document).ready(function () {
 	let count = 0;
 	let step = 3;
 
-	$(".fotos__collection").on("scroll", function (e) {
+	$(".fotos__collection").on("scroll", function () {
 
 		let blockWidth = $(this).width();
 		let blockPosition = $(this).offset().left;
@@ -86,7 +86,8 @@ $(document).ready(function () {
 			let photosData = [];
 			fetch(URL).then(function(response) {
 
-				return response.json()
+				return response.json();
+
 			}).then(function (data) {
 
 				if (count <= data.length) {
@@ -95,7 +96,7 @@ $(document).ready(function () {
 					photosConstruct(photosData);
 
 					count += step;
-				}
+				};
 			});
 		};
 	});

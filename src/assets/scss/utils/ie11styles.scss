@@ -1,0 +1,212 @@
+/* стили только для IE10 IE11 */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+	.header {
+		&__content {
+			height: 100px;
+		}
+
+		&__logo {
+			margin: auto 0;
+		}
+		&__contacts {
+			margin-left: 38px;
+		}
+		&__present {
+			background: none;
+			height: 840px;
+
+			@media (max-width: $tableWidth) {
+				height: 655px;
+			}
+		}
+		&__background {
+			width: 100%;
+			height: 840px;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			@media (max-width: $tableWidth) {
+				height: 655px;
+			}
+		}
+		&__image {
+			background-image: url("/assets/img/helicopter@2x.png");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center ;
+			width: 100%;
+			height: 100%;
+
+			& > img {
+				display: none;
+			}
+		}
+		&__description {
+			position: relative;
+
+		}
+		&__build {
+			margin-top: 20px;
+		}
+		&__button {
+			margin-top: 20px;
+		}
+	}
+	.false__content {
+		display: none;
+		justify-content: space-between;
+
+		@media (max-width: $tableWidth) {
+			display: flex;
+		}
+	}
+
+	.desc__item:not(:first-child) {
+		margin-top: 20px;
+	}
+
+	.desc__text {
+		margin-left: 8px;
+	}
+
+	.commits {
+		&__text {
+			margin: 0 10px;
+		}
+
+		&__numb {
+			margin: 0 5px;
+		}
+	}
+
+	.fotoshoot {
+
+		&__description {
+
+			@media (max-width: $tableWidth) {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+
+		&__slide {
+			@media (max-width: $tableWidth) {
+				margin-top: 9px;
+			}
+		}
+
+		&__text {
+			@media (max-width: $tableWidth) {
+				margin-top: 9px;
+			}
+		}
+
+		&__decs {
+			@media (max-width: $tableWidth) {
+				margin-top: 9px;
+			}
+		}
+
+		&__commits {
+			margin-top: 29px;
+		}
+	}
+	.fotos {
+
+		&__collection {
+			margin-top: 34px;
+		}
+		&__show-button {
+			margin-top: 34px;
+		}
+		&__list{
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: 10px;
+			//justify-content: space-between;
+		}
+		&__item {
+			max-width: 335px;
+			min-width: 250px;
+			margin-left: 5px;
+			margin-right: 5px;
+			flex-grow: 1;
+		}
+		&__button {
+			& p {
+				margin: 0 10px;
+			}
+		}
+	}
+	.sponsor {
+
+		&__represent {
+			margin-top: 27px;
+		}
+		&__about-text {
+			margin-top: 26px;
+
+			& span:nth-child(2) {
+				margin-top: 26px ;
+			}
+		}
+		&__link-more {
+			margin-top: 13px;
+		}
+	}
+	.entry {
+
+		&__day > .date {
+			margin: 0 5px;
+		}
+		&__picker-icon {
+			margin-left: 21px;
+		}
+	}
+	.map {
+
+		&__block {
+			top: 4%;
+		}
+		&__item:not(:first-child) {
+			margin-top: 34px;
+		}
+		&__info {
+			margin-right: 18px;
+		}
+		&__photo {
+			margin-right: 10px;
+		}
+		&__text {
+			margin-top: 12px;
+		}
+	}
+	.false__item {
+		margin-top: 41px;
+
+		& .map__text {
+			margin: 10px 0 3px;
+		}
+	}
+
+	.cards__photo {
+		width: 101px;
+		height: 101px;
+		padding-bottom: 0;
+	}
+	.more__text > p {
+		margin: 0 10px;
+	}
+	.copyrait__payment {
+		left: 0;
+	}
+	.copyrait__text {
+
+		& p:last-child {
+			margin-top: 17px;
+		}
+	}
+}

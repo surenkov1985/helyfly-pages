@@ -1,16 +1,60 @@
 import $ from 'jquery';
 
-function testValue(elem, reg) {
+console.log(111)
+console.log(111)
+alert(111)
 
-	let str = $(elem).val();
-	if (reg.test(str)) {
+function testValue(elem, reg, string) {
+	if ($(elem).attr("data-reg") === "true") {
 
-		$(elem).css("color", "green");
-		$(elem).attr("data-test", true);
-	} else {
+		let str = $(elem).val();
+		let errClass = ".err-" + $(elem).attr("Id");
 
-		$(elem).css("color", "red");
-		$(elem).attr("data-test", false);
+		if (!str.length) {
+
+			$(errClass).text("Заполните это поле");
+			$(elem).addClass("error");
+			$(elem).attr("data-test", "false");
+
+		} else if (!reg.test(str)) {
+
+			$(errClass).text(string);
+			$(elem).addClass("error");
+			$(elem).attr("data-test", "false");
+
+		} else {
+
+			$(elem).removeClass("error");
+			$(elem).attr("data-test", "true");
+			$(errClass).text("");
+		};
+	};
+};
+
+function testCardValue(elem, reg) {
+
+	if ($(elem).attr("data-reg") === "true") {
+
+		let str = $(elem).val();
+
+		if (!str.length) {
+
+			$(".err-card").text("Заполните это поле");
+			$(elem).addClass("error");
+			$(elem).attr("data-test", "false");
+
+		} else if (!reg.test(str)) {
+
+			$(".err-card").text("Введите валидные данные");
+			$(elem).addClass("error");
+			$(elem).attr("data-test", "false");
+
+		} else {
+
+			$(elem).removeClass("error");
+			$(elem).attr("data-test", "true");
+			$(".err-card").text("");
+		};
 	};
 };
 
@@ -29,7 +73,7 @@ $(document).ready(function () {
 
 	let scrollDocument = 0;
 
-	$(".header__button").on("click", function (e) {
+	$(".header__button").on("click", function () {
 		$(".modal").addClass("active");
 
 		scrollDocument = $(document).scrollTop();
@@ -41,6 +85,7 @@ $(document).ready(function () {
 	});
 
 	$(".modal__close-icon").on("click", function () {
+
 		$(".modal").removeClass("active");
 		$(".calendar-modal").removeClass("active");
 
@@ -71,7 +116,7 @@ $(document).ready(function () {
 				$(this).val("");
 				$(".check__box").prop("checked", false);
 			});
-		}
+		};
 	});
 
 	$(".modal__button").on("click", function (e) {
@@ -82,7 +127,7 @@ $(document).ready(function () {
 		$(".modal__block-alert").addClass("active");
 	});
 
-	$(".modal__button-alert").on("click", function (e) {
+	$(".modal__button-alert").on("click", function () {
 
 		$(".modal").removeClass("active");
 
@@ -110,53 +155,175 @@ $(document).ready(function () {
 
 			$(".modal__form").find(".input").each(function () {
 
-				if ($(this).attr("data-test")) {
+				if ($(this).attr("data-test") === "true") {
 
 					$(".modal__button").attr("disabled", false);
+
 				} else {
 
 					$(".modal__button").attr("disabled", true);
 				}
 			});
+
 		} else {
 
 			$(".modal__button").attr("disabled", true);
-		}
+		};
 	});
 
-	$(".email").on("input", function () {
+	$("#date").on("focus input keydown blur", function (e) {
 
+		$(".calendar-modal").addClass("active");
+
+		let valReg = /\D/g;
+		let key = e.originalEvent.key;
+		let str = formatValueInput(".date", valReg);
+		let regexp = /\d{2}\.\d{2}\.\d{4}/;
+		let testString = "Введите валидную дату";
+		let mask = "__.__.____";
+		let maskArr = "";
+
+
+
+		if (str.length > 0) {
+
+			maskArr += str.slice(0, 2);
+		};
+
+		if (str.length >= 2) {
+
+			maskArr += "." + str.slice(2, 4);
+		};
+
+		if (str.length >= 4) {
+
+			maskArr +=  "." + str.slice(4, 8);
+		};
+
+		$(this).val(maskArr + mask.slice(maskArr.length));
+
+		testValue(".date", regexp, testString);
+
+		e.target.selectionStart = maskArr.length;
+		e.target.selectionEnd = maskArr.length;
+
+		if (e.target.selectionEnd !== maskArr.length) {
+
+			if (e.originalEvent.data && valReg.test(e.originalEvent.data)) {
+
+				$(this).val(str);
+			};
+			return;
+
+		} else {
+
+			e.target.selectionStart = maskArr.length;
+		};
+
+
+		if (key === "Enter" || e.type === "blur") {
+			e.preventDefault();
+
+			$(this).attr("data-reg", "true");
+
+			testValue(".date", regexp, testString);
+
+			if (+maskArr.slice(0,2) > 31 || +maskArr.slice(3, 5) > 12 || +maskArr.slice(6) > 2030) {
+
+				$(".err-date").text(testString);
+				$(this).addClass("error");
+				$(this).attr("data-test", "false");
+			};
+
+			if ($(this).attr("data-test") === "true") {
+
+				$(".input")[$(".input").index(this) + 1].focus();
+				$(".calendar-modal").removeClass("active");
+			};
+		};
+	});
+
+	$(".email").on("input keydown blur", function (e) {
+
+		let key = e.originalEvent.key;
+		let str = $(this).val();
 		let regexp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-		testValue(".email", regexp);
-	});
-
-
-	$(".name").on("input", function () {
-
-		let str = formatValueInput(this, /[\d\W\s[^а-я]]+/gi);
-		let regexp = /([a-z]+)|([а-я]+)/i;
+		let testString = "Введите валидный email";
 
 		$(this).val(str);
-		testValue(".name", regexp);
+
+		testValue(".email", regexp, testString);
+
+		if (key === "Enter" || e.type === "blur") {
+			e.preventDefault();
+			console.log(e)
+			$(this).attr("data-reg", "true");
+
+			testValue(".email", regexp, testString);
+
+			if ($(this).attr("data-test") === "true") {
+
+				$(".input")[$(".input").index(this) + 1].focus();
+			};
+		};
 	});
 
-	$(".surname").on("input", function () {
 
-		let str = formatValueInput(this, /[\d\W\s[^а-я]]+/gi);
-		let regexp = /[a-z]+||[а-я]+/i;
+	$(".name").on("input keydown blur", function (e) {
+
+		let key = e.originalEvent.key;
+		let str = formatValueInput(this, /^[\d\s.]+$/g);
+		let regexp = /^[a-zа-яё]+$/i;
+		let testString = "Введите валидное имя";
 
 		$(this).val(str);
-		testValue(".surname", regexp);
+		testValue(".name", regexp, testString);
+
+		if (key === "Enter" || e.type === "blur") {
+			e.preventDefault();
+
+			$(this).attr("data-reg", "true");
+
+			testValue(".name", regexp, testString);
+
+			if ($(this).attr("data-test") === "true") {
+
+				$(".input")[$(".input").index(this) + 1].focus();
+			};
+		};
 	});
 
+	$(".surname").on("input keydown blur", function (e) {
 
+		let key = e.originalEvent.key;
+		let str = formatValueInput(this, /^[\d\s.]+$/g);
+		let regexp = /[a-zа-яё]+/i;
+		let testString = "Введите валидную фамилию";
 
-	$(".phone").on("input focus blur", function (e) {
+		$(this).val(str);
+		testValue(".surname", regexp, testString);
 
-		let testReg = /(\+\d\s\(\d{3}\)\s\d{3}\-\d{2}\-\d{2})|(\d\s\(\d{3}\)\s\d{3}\-\d{2}\-\d{2})/gi;
+		if (key === "Enter" || e.type === "blur") {
+			e.preventDefault();
+
+			$(this).attr("data-reg", "true");
+
+			testValue(".surname", regexp, testString);
+
+			if ($(this).attr("data-test") === "true") {
+
+				$(".input")[$(".input").index(this) + 1].focus();
+			};
+		};
+	});
+
+	$(".phone").on("input keydown blur", function (e) {
+
+		let key = e.originalEvent.key;
+		let testReg = /[(\+\d\s\(\d\d\d\)\s\d\d\d-\d\d-\d\d)(\d\s\(\d\d\d\)\s\d\d\d-\d\d-\d\d)]/gi;
 		let valRegRu = /\D/gi;
 		let valRegEur = /\+\d{15}/;
+		let testString = "Введите валидный номер";
 
 		let cursorPosition = e.target.selectionStart;
 		let str = formatValueInput(".phone", valRegRu);
@@ -164,16 +331,15 @@ $(document).ready(function () {
 
 		let rusTel = ["7", "8", "9"];
 
-		if (!str.length) $(this).val("");
-
 		if (cursorPosition !== $(this).val().length) {
 
 			if (e.originalEvent.data && valRegRu.test(e.originalEvent.data)) {
 
 				$(this).val(str);
-			}
+			};
+
 			return;
-		}
+		};
 
 		if (rusTel.indexOf(str[0]) > -1) {
 
@@ -186,37 +352,61 @@ $(document).ready(function () {
 			if (str.length > 1) {
 
 				formatStr += " (" + str.slice(1,4);
-			}
+			};
 
 			if (str.length >= 5) {
 
 				formatStr += ") " + str.slice(4,7);
-			}
+			};
 
 			if (str.length >= 8) {
 
 				formatStr += "-" + str.slice(7,9);
-			}
+			};
 
 			if (str.length >= 10) {
 
 				formatStr += "-" + str.slice(9,11);
-			}
-			testValue(".phone", testReg);
+			};
+
+			testValue(".phone", testReg, testString);
 
 		} else {
 
 			if (str.length >= 1) formatStr = "+" + str;
 
-			testValue(".phone", valRegEur);
-		}
+			testValue(".phone", valRegEur, testString);
+		};
 
 		$(this).val(formatStr);
+
+		if (key === "Enter" || e.type === "blur") {
+			e.preventDefault();
+
+			$(this).attr("data-reg", "true");
+
+			if (str[0] === 0 || str[0] < 7) testValue(".phone", valRegEur, testString);
+
+			if (str[0] <= 9 && str[0] >= 7) testValue(".phone", testReg, testString);
+
+			if (str.length < 10) {
+
+				$(".err-phone").text(testString);
+				$(this).addClass("error");
+				$(this).attr("data-test", "false");
+			};
+
+			if ($(this).attr("data-test") === "true") {
+
+				$(".input")[$(".input").index(this) + 1].focus();
+			};
+		};
 	});
 
-	$(".form__card-number").on("input blur", function (e) {
+	$(".form__card-number").on("input keydown blur", function (e) {
 
-		let testReg = /\d{4}\s\d{4}\s\d{4}\s\d{4}/g;
+		let key = e.originalEvent.key;
+		let testReg = /\d{4}\s\d{4}\s\d{4}\s\d{4}/;
 		let valReg = /\D/gi;
 
 		let cursorPosition = e.target.selectionStart;
@@ -232,7 +422,7 @@ $(document).ready(function () {
 				$(this).val(str);
 			}
 			return;
-		}
+		};
 
 		if (str.length >= 1) formatStr += str.slice(0, 4);
 		if (str.length > 4) formatStr += " " + str.slice(4, 8);
@@ -242,13 +432,27 @@ $(document).ready(function () {
 
 		$(this).val(formatStr);
 
-		testValue(".form__card-number", testReg);
+		testCardValue(".form__card-number", testReg);
+
+		if (key === "Enter" || e.type === "blur") {
+			e.preventDefault();
+
+			$(this).attr("data-reg", "true");
+
+			testCardValue(".form__card-number", testReg);
+
+			if ($(this).attr("data-test") === "true") {
+
+				$(".input")[$(".input").index(this) + 1].focus();
+			};
+		};
 	});
 
-	$(".form__card-date").on("input blur", function (e) {
+	$(".form__card-date").on("input keydown blur", function (e) {
 
+		let key = e.originalEvent.key;
 		let valReg = /\D/gi;
-		let testReg = /[01][0-2]\/\d\d/g;
+		let testReg = /[01]\d\/\d\d/;
 
 		let cursorPosition = e.target.selectionStart;
 		let str = formatValueInput(".form__card-date", valReg);
@@ -271,18 +475,48 @@ $(document).ready(function () {
 
 		$(this).val(formatStr);
 
-		testValue(".form__card-date", testReg);
+		testCardValue(".form__card-date", testReg);
+
+		if (key === "Enter" || e.type === "blur") {
+			e.preventDefault();
+
+			$(this).attr("data-reg", "true");
+
+			if (Number(formatStr.slice(0, 2)) > 12) {
+
+				$(".err-card").text("Введите валидные данные");
+				$(this).addClass("error");
+				$(this).attr("data-test", "false");
+			};
+
+			testCardValue(".form__card-date", testReg);
+
+			if ($(this).attr("data-test") === "true") {
+
+				$(".input")[$(".input").index(this) + 1].focus();
+			};
+		};
 	});
 
-	$(".form__card-code").on("input", function (e) {
+	$(".form__card-code").on("input keydown blur", function (e) {
 
+		let key = e.originalEvent.key;
 		let valReg = /\D/gi;
-		let testReg = /\d{3}/gi;
+		let testReg = /\d{3}/;
 
 		let str = formatValueInput(".form__card-code", valReg);
 		$(this).val(str);
 
-		testValue(".form__card-code", testReg);
-	})
+		testCardValue(".form__card-code", testReg);
+
+		if (key === "Enter" || e.type === "blur") {
+			e.preventDefault();
+
+			$(this).attr("data-reg", "true");
+
+			testCardValue(".form__card-code", testReg);
+
+		};
+	});
 
 });

@@ -134,6 +134,10 @@
 		}
 	}
 
+	&__rating-star {
+		grid-area: star;
+	}
+
 	&__rating-false {
 		grid-area: like;
 		display: none;

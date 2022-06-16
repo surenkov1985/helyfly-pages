@@ -6,9 +6,6 @@ $(document).ready(function () {
 	/////           YANDEX MAPS          /////
 	//////////////////////////////////////////
 
-	let blockHint = ['<div class="hint">', '<div class="hint__content">', '<ul class="hint__list">', '<li class="hint__item">','<div class="hint__block">', '<div class="hint__numb">','1' ,'</div>' , '<div class="hint__title">', ,'Где встречаемся?' ,'</div>', '<div class="hint__title">', ,'Москва' ,'</div>','</div>','</li>',, '<li class="hint__item">','<div class="hint__block">', '<div class="hint__numb">','1' ,'</div>' , '<div class="hint__title">', ,'Где встречаемся?' ,'</div>', '<div class="hint__title">', ,'Москва' ,'</div>','</div>','</li>', '<li class="hint__item">','<div class="hint__block">', '<div class="hint__numb">','1' ,'</div>' , '<div class="hint__title">', ,'Где встречаемся?' ,'</div>', '<div class="hint__title">', ,'Москва' ,'</div>','</div>','</li>','</ul>','</div>','</div>' ]
-
-
 	ymaps.ready(function () {
 		let myMap = new ymaps.Map("map", {
 			// Координаты центра карты.
@@ -23,7 +20,7 @@ $(document).ready(function () {
 		myMap.behaviors.disable('scrollZoom');
 
 		let placemark = new ymaps.Placemark([55.758792301352464, 37.61949521438022], {
-				hintContent: blockHint.join(''),
+
 				balloonContent: "Встречаемся тут"
 			},
 			{

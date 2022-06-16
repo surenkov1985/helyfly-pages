@@ -5,6 +5,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const buildWebpackConfig = merge(baseWebpackConfig, {
   // BUILD config
   mode: 'production',
+  // output: {
+	// 	publicPath: '',
+	// },
   plugins: [
 	  new CleanWebpackPlugin()
   ]
