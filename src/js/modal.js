@@ -1,9 +1,5 @@
 import $ from 'jquery';
 
-console.log(111)
-console.log(111)
-alert(111)
-
 function testValue(elem, reg, string) {
 	if ($(elem).attr("data-reg") === "true") {
 
