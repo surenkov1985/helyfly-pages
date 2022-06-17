@@ -1,6 +1,6 @@
 Код и вёрстка.
 
-Учебный проект на основе задания: https://www.figma.com/file/fMyOAiBkWJ4LtAacwdmIyB/testTask?node-id=0%3A1
+Учебный проект на основе задания: https://github.com/fugr-ru/frontend-html-3
 
 [Демо](https://mich-man.ru/projects/hely-fly-pages/)
 
