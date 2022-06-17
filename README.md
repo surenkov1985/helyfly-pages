@@ -4,7 +4,6 @@
 
 [Демо](https://mich-man.ru/projects/hely-fly-pages/)
 
-Alexander, [17.06.2022 14:25]
 - верстка по шаблону Figma, адаптив
 - в верстке использовались: pug, scss, БЭМ, семантика, flexbox и grid
 - в коде использовались: jquery, fetch, const let, стрелочные функции, RegExp
