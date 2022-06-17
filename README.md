@@ -1,4 +1,4 @@
-Вёрстка.
+Код и вёрстка.
 
 Учебный проект на основе задания: https://www.figma.com/file/fMyOAiBkWJ4LtAacwdmIyB/testTask?node-id=0%3A1
 
@@ -13,5 +13,3 @@ Alexander, [17.06.2022 14:25]
 - проверка в валидаторах: https://validator.w3.org/ и https://jigsaw.w3.org/css-validator/
 - ручное тестирование верстки путем отключения некоторых картинок, для имитации их непрогруженности; изменение длины некоторых текстов для проверки растягивания блоков
 - изучение webpack
-
-Для сборки использовался отредактированный webpack template: https://github.com/vedees/webpack-template
