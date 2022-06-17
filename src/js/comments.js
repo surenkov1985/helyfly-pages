@@ -1,5 +1,6 @@
-import $ from 'jquery'
-// import json from '../data/comments.json'
+import $ from 'jquery';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 /////////////////////////////////////////
 ///    COMMITS GENERATE             /////

@@ -1,4 +1,7 @@
-import $ from 'jquery'
+import $ from 'jquery';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 
 //////////////////////////////////////
 ////     PHOTOS CONSTRUCTOR       ////
